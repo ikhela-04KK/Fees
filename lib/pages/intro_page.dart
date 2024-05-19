@@ -38,11 +38,26 @@ class IntroPage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+
             // subtitle
+            const SizedBox(height: 12,), 
+
+            Text(
+              "rapide et moins chère", 
+              style: TextStyle(
+                color: Colors.white, 
+                fontFamily: "jbm", 
+                fontWeight: FontWeight.w100,
+                fontSize: 20
+              ),
+            )
+
+            // button for next 
           ],
         ),
       ),
     );
   }
 }
+
