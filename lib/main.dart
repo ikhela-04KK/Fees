@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cryto_wallet_3/pages/intro_page.dart';
+import 'package:cryto_wallet_3/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fees',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      theme: lightMode,
       home: IntroPage(),
       debugShowCheckedModeBanner: false,
       );

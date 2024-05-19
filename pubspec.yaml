@@ -15,6 +15,9 @@ dependencies:
   iconsax_flutter: ^1.0.0
   animate_do: ^2.0.0
   flutter_advanced_drawer: ^1.2.3+1
+  flutter_svg_icons: ^0.0.1+4
+  flutter_svg: ^2.0.10+1
+  flutter_animate: ^4.5.0
 
 
 
@@ -28,17 +31,23 @@ flutter:
 
   assets:
     - assets\images\avatar.jpg
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: jbm
+      fonts:
+        - asset: fonts/JetBrainsMonoNerdFont-Bold.ttf
+          weight: 700  # 700 correspond à FontWeight.bold
+        - asset: fonts/JetBrainsMonoNerdFontMono-MediumItalic.ttf
+          weight: 500  # 500 correspond à FontWeight.w500 (medium)
+          style: italic
+        - asset: fonts/JetBrainsMonoNerdFontMono-Thin.ttf
+          weight: 100  # 100 correspond à FontWeight.w100 (thin)
+        - asset: fonts/JetBrainsMonoNerdFontMono-Light.ttf
+          weight: 300  # 300 correspond à FontWeight.w300 (light)
+        - asset: fonts/JetBrainsMonoNerdFontMono-ExtraBoldItalic.ttf
+          weight: 800  # 800 correspond à FontWeight.w800 (extra bold)
+          style: italic
+        - asset: fonts/JetBrainsMonoNerdFont-ExtraLight.ttf
+          weight: 200  # 200 correspond à FontWeight.w200 (extra light)
+        - asset: fonts/JetBrainsMonoNerdFont-Medium.ttf
+          weight: 500  # 500 correspond à FontWeight.w500 (medium)
+
