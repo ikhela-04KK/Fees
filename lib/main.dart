@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:cryto_wallet_3/home_page.dart';
+import 'package:cryto_wallet_3/pages/intro_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'IPAY',
+      title: 'Fees',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0x00FFFFFF)),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: IntroPage(),
       debugShowCheckedModeBanner: false,
       );
   }
