@@ -35,44 +35,46 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "F", // Première lettre
-                    style: TextStyle(
-                      color: primaryColor, // Couleur spécifique pour la première lettre
-                      fontWeight: FontWeight.bold,
-                      fontSize: 72,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "F", // Première lettre
+                      style: TextStyle(
+                        color: primaryColor, // Couleur spécifique pour la première lettre
+                        fontWeight: FontWeight.bold,
+                        fontSize: 72,
+                      ),
                     ),
-                  ),
-                  TextSpan(
-                    text: "ees", // Reste du texte
-                    style: TextStyle(
-                      color: Colors.white, // Couleur pour le reste du texte
-                      fontFamily: "jbm",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 72,
+                    TextSpan(
+                      text: "ees", // Reste du texte
+                      style: TextStyle(
+                        color: Colors.white, // Couleur pour le reste du texte
+                        fontFamily: "jbm",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 72,
+                      ),
                     ),
-                  ),
-                   // subtitle
-                ],
-              ),
-            ).animate().fade(delay: 2000.ms, begin: 0.1, end: 0.8).shake(duration: 1000.ms),
-            const SizedBox(height: 12,),
-            Text(
-              "rapide et moins chère", 
-              style: TextStyle(
-                color: Colors.white, 
-                fontFamily: "jbm", 
-                fontWeight: FontWeight.w100,
-                fontSize: 20
-              ),
-            )
-        ],
+                     // subtitle
+                  ],
+                ),
+              ).animate().fade(delay: 1000.ms, begin: 0.1, end: 0.8).shake(duration: 1000.ms),
+              const SizedBox(height: 12,),
+              Text(
+                "rapide et moins chère", 
+                style: TextStyle(
+                  color: Colors.white, 
+                  fontFamily: "jbm", 
+                  fontWeight: FontWeight.w100,
+                  fontSize: 20
+                ),
+              )
+          ],
+        ),
       ),
     );
   }
