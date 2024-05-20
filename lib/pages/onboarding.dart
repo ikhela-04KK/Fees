@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cryto_wallet_3/constants/colors.dart';
 import 'package:cryto_wallet_3/home_page.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_one.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_three.dart';
@@ -51,6 +52,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   SmoothPageIndicator(
                     controller: controller,
                     count: 3,
+                    effect: SlideEffect(
+                      dotColor: secondColor,
+                      activeDotColor: primaryColor, 
+                      strokeWidth: 0.5
+                    ),
                   ),
 
                   // if onLastPage display done
