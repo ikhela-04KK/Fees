@@ -5,6 +5,16 @@ import 'package:cryto_wallet_3/pages/onboarding.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 
+
+
+// class Intro extends StatelessWidget {
+//   const Intro({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return IntroPage();
+//   }
+// }
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
@@ -26,10 +36,13 @@ class _IntroPageState extends State<IntroPage> {
     // Attendre que l'animation soit terminée
     await Future.delayed(Duration(seconds: 4)); // Durée totale de l'animation
     // Naviguer vers la page suivante
-    Navigator.pushReplacement(
+    if(mounted){
+      Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => OnboardingPage()),
     );
+    }
+
   }
 
   @override

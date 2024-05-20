@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cryto_wallet_3/home_page.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_one.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_three.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_two.dart';
@@ -15,9 +16,9 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
 
-  final PageController _controller = PageController();
+  final PageController controller = PageController();
   bool onLastPage = false;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +42,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      _controller.jumpToPage(2);
+                      controller.jumpToPage(2);
                     },
                     child: Text("retour"),
                   ),
 
                   SmoothPageIndicator(
-                    controller: _controller,
+                    controller: controller,
                     count: 3,
                   ),
 
@@ -55,15 +56,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   onLastPage
                       ? GestureDetector(
                           onTap: () {
-                            _controller.nextPage(
-                                duration: Duration(microseconds: 500),
-                                curve: Curves.easeIn);
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(builder: (context){
+                                return HomePage();
+                              })
+                            );
                           },
                           child: Text("terminer"),
                         )
                       : GestureDetector(
                           onTap: () {
-                            _controller.nextPage(
+                            controller.nextPage(
                                 duration: Duration(microseconds: 500),
                                 curve: Curves.easeIn);
                           },
