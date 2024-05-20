@@ -26,6 +26,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         body: Stack(
           children: [
             PageView(
+              controller: controller,
               children: [IntroOne(), IntroTwo(), IntroThree()],
 
               // verifed if on last page
