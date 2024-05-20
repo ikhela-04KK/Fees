@@ -52,10 +52,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   SmoothPageIndicator(
                     controller: controller,
                     count: 3,
-                    effect: SlideEffect(
+                    effect: WormEffect(
                       dotColor: secondColor,
                       activeDotColor: primaryColor, 
-                      strokeWidth: 0.5
+                      strokeWidth: 0.5,
+                      dotHeight: 10,
+                      dotWidth: 20
                     ),
                   ),
 

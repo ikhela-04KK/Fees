@@ -31,7 +31,6 @@ class _IntroPageState extends State<IntroPage> {
       _startAnimation();
     });
   }
-
   Future<void> _startAnimation() async {
     // Attendre que l'animation soit terminée
     await Future.delayed(Duration(seconds: 4)); // Durée totale de l'animation
@@ -42,7 +41,6 @@ class _IntroPageState extends State<IntroPage> {
       MaterialPageRoute(builder: (context) => OnboardingPage()),
     );
     }
-
   }
 
   @override
