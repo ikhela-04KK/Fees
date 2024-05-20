@@ -1,28 +1,50 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:cryto_wallet_3/constants/colors.dart';
+import 'package:cryto_wallet_3/pages/onboarding.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 
-
-class IntroPage extends StatelessWidget {
+class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
+
+  @override
+  _IntroPageState createState() => _IntroPageState();
+}
+
+class _IntroPageState extends State<IntroPage> {
+  @override
+  void initState() {
+    super.initState();
+    // Démarrer l'animation et naviguer après qu'elle soit terminée
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _startAnimation();
+    });
+  }
+
+  Future<void> _startAnimation() async {
+    // Attendre que l'animation soit terminée
+    await Future.delayed(Duration(seconds: 4)); // Durée totale de l'animation
+    // Naviguer vers la page suivante
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => OnboardingPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // text
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
             RichText(
               text: TextSpan(
                 children: [
                   TextSpan(
                     text: "F", // Première lettre
                     style: TextStyle(
-                      color: primaryColor,// Couleur spécifique pour la première lettre
+                      color: primaryColor, // Couleur spécifique pour la première lettre
                       fontWeight: FontWeight.bold,
                       fontSize: 72,
                     ),
@@ -36,13 +58,11 @@ class IntroPage extends StatelessWidget {
                       fontSize: 72,
                     ),
                   ),
+                   // subtitle
                 ],
               ),
-            ),
-
-            // subtitle
-            const SizedBox(height: 12,), 
-
+            ).animate().fade(delay: 2000.ms, begin: 0.1, end: 0.8).shake(duration: 1000.ms),
+            const SizedBox(height: 12,),
             Text(
               "rapide et moins chère", 
               style: TextStyle(
@@ -52,12 +72,8 @@ class IntroPage extends StatelessWidget {
                 fontSize: 20
               ),
             )
-
-            // button for next 
-          ],
-        ),
+        ],
       ),
     );
   }
 }
-
