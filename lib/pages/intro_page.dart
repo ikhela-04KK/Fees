@@ -5,20 +5,11 @@ import 'package:cryto_wallet_3/pages/onboarding.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 
-
-
-// class Intro extends StatelessWidget {
-//   const Intro({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return IntroPage();
-//   }
-// }
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _IntroPageState createState() => _IntroPageState();
 }
 

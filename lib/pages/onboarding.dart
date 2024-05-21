@@ -46,7 +46,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     onTap: () {
                       controller.jumpToPage(2);
                     },
-                    child: Text("retour"),
+                    child: Text(
+                      "retour",
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
                   ),
 
                   SmoothPageIndicator(
@@ -72,7 +77,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               })
                             );
                           },
-                          child: Text("terminer"),
+                          child: Text(
+                            "terminer", 
+                            style:TextStyle(
+                              color: Colors.white
+                            ) ,
+                            ),
                         )
                       : GestureDetector(
                           onTap: () {
@@ -80,7 +90,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 duration: Duration(microseconds: 500),
                                 curve: Curves.easeIn);
                           },
-                          child: Text("suivant"),
+                          child: Text(
+                            "suivant", 
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
+                          ),
                         )
                 ],
               ),
