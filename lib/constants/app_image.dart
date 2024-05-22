@@ -7,7 +7,7 @@ class AppImages {
   static const String avatar1 = 'assets/images/avatar-1.svg';
   static const String avatarJpg = 'assets/images/avatar.jpg';
   static const String accessAccount = 'assets/images/undraw_access_account_re_8spm.svg';
-  static const String aroundTheWorld = 'assets/undraw_around_the_world_re_rb1p.svg';
+  static const String aroundTheWorld = 'assets/images/undraw_around_the_world_re_rb1p.svg';
   static const String aitcoinP2P = 'assets/images/undraw_bitcoin_p2p_re_1xqa.svg';
   static const String cryptoFlowers = 'assets/images/undraw_crypto_flowers_re_dyqo.svg';
   static const String ecoConscious = 'assets/images/undraw_eco_conscious_re_r2bs.svg';

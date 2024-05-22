@@ -21,8 +21,6 @@ dependencies:
   animated_text_kit: ^4.2.2
   smooth_page_indicator: ^1.1.0
 
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,7 +30,17 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets\images\avatar.jpg
+    - assets/images/avatar.jpg
+    - assets/images/avatar.jpg
+    - assets/images/undraw_access_account_re_8spm.svg
+    - assets/images/undraw_around_the_world_re_rb1p.svg
+    - assets/images/undraw_bitcoin_p2p_re_1xqa.svg
+    - assets/images/undraw_crypto_flowers_re_dyqo.svg
+    - assets/images/undraw_eco_conscious_re_r2bs.svg
+    - assets/images/undraw_mobile_payments_re_7udl.svg
+    - assets/images/undraw_security_re_a2rk.svg
+    - assets/images/undraw_time_management_re_tk5w.svg
+    - assets/images/undraw_wallet_re_cx9u.svg
   fonts:
     - family: jbm
       fonts:

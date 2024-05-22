@@ -6,24 +6,54 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class IntroOne extends StatelessWidget {
   IntroOne({super.key});
-  final Widget svgIcon = SvgPicture.asset(AppImages.aroundTheWorld);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Center(
-        child: Container(
-          color: Colors.black,
-          decoration: BoxDecoration(
-              border: Border.all(
-                  color: Color(0xFF6BEF1A),
-                  width: 1.0,
-                  style: BorderStyle.solid)
+    return SafeArea(
+      child: Scaffold(
+      body: Column(
+        children: [
+          const Spacer(), 
+          SvgPicture.asset(
+            AppImages.aroundTheWorld,
+            // width: 300,
+            height: 200,
+          ),
+
+          const SizedBox(height: 20,), 
+          Text(
+            "Rejoignez la révolution des paiements", 
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xFF6BEF1A), 
+              fontWeight: FontWeight.w500, 
+              fontFamily: "jbm", 
+              fontSize: 30
+            ),
+          ), 
+          // const Spacer(), 
+          const SizedBox(height: 16,), 
+          Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Text(
+              "Utilisez Fees pour des transactions rapides, sécurisées et écologiques grâce à la blockchain Solana.", 
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white, 
+                fontFamily: "jbm", 
+                fontSize: 12
               ),
-              child: svgIcon,
-        ),
+            ),
+          ), 
+          const Spacer(), 
+
+        ],
       ),
+      )
     );
   }
 }
+
+
+
+

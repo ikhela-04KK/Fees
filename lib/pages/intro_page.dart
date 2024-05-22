@@ -64,7 +64,7 @@ class _IntroPageState extends State<IntroPage> {
                      // subtitle
                   ],
                 ),
-              ).animate().fade(delay: 1000.ms, begin: 0.1, end: 0.8).shake(duration: 1000.ms),
+              ).animate().shake(duration: 1000.ms),
               const SizedBox(height: 12,),
               Text(
                 "rapide et moins chère", 
