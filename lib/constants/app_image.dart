@@ -15,4 +15,12 @@ class AppImages {
   static const String security = 'assets/images/undraw_security_re_a2rk.svg';
   static const String timeManagement = 'assets/images/undraw_time_management_re_tk5w.svg';
   static const String wallet = 'assets/images/undraw_wallet_re_cx9u.svg';
+  static const String avatar = 'assets/images/avatar.jpg';
+  static const String cardAdd = 'assets/images/card-add.png';
+  static const String element3 = 'assets/images/element-3.png';
+  static const String moneyReceive = 'assets/images/money-recive.png';
+  static const String moneySend = 'assets/images/money-send.png';
+  static const String avatarPng = 'assets/images/Avatar.png';
+  static const String faceAvatar = 'assets/images/faceAvatar.png';
+
 }

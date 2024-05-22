@@ -20,6 +20,8 @@ dependencies:
   flutter_animate: ^4.5.0
   animated_text_kit: ^4.2.2
   smooth_page_indicator: ^1.1.0
+  gap: ^3.0.1
+  dots_indicator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +43,14 @@ flutter:
     - assets/images/undraw_security_re_a2rk.svg
     - assets/images/undraw_time_management_re_tk5w.svg
     - assets/images/undraw_wallet_re_cx9u.svg
+    - assets/images/avatar.jpg
+    - assets/images/card-add.png
+    - assets/images/element-3.png
+    - assets/images/money-recive.png
+    - assets/images/money-send.png
+    - assets/Avatar.png
+    - assets/images/faceAvatar.png
+
   fonts:
     - family: jbm
       fonts:
