@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:cryto_wallet_3/pages/intro_page.dart';
+import 'package:cryto_wallet_3/pages/intro_screen/intro_page.dart';
 import 'package:cryto_wallet_3/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 

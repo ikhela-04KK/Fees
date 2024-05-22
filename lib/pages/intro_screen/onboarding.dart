@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:cryto_wallet_3/constants/colors.dart';
-import 'package:cryto_wallet_3/home_page.dart';
+import 'package:cryto_wallet_3/pages/home_page/home_page.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_one.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_three.dart';
 import 'package:cryto_wallet_3/pages/intro_screen/intro_two.dart';
