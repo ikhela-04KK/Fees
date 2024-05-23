@@ -51,6 +51,8 @@ flutter:
     - assets/images/money-send.png
     - assets/Avatar.png
     - assets/images/faceAvatar.png
+    - assets/images/money-recive.svg
+    - assets/images/money-send.svg
 
   fonts:
     - family: jbm

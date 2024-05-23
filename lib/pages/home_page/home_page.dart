@@ -105,6 +105,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           // payement / receive
+                          
                           SetupPay(),
                           // padding 001
                           Padding(
