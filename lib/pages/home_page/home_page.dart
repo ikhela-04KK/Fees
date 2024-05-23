@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unused_element, sized_box_for_whitespace
 import 'package:cryto_wallet_3/constants/app_image.dart';
 import 'package:cryto_wallet_3/constants/colors.dart';
+import 'package:cryto_wallet_3/constants/historyPaiement.dart';
+import 'package:cryto_wallet_3/constants/iconContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -16,9 +17,8 @@ class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
 
   final List<Map<String, String>> _transactions = [
-    {'name': 'Amazon', 'image': 'https://img.icons8.com/color/2x/amazon.png'},
     {
-      'name': 'Cash from ATM',
+      'name': 'ATM',
       'image':
           'https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-atm-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png'
     },
@@ -30,20 +30,48 @@ class _HomePageState extends State<HomePage> {
       'name': 'Apple Store',
       'image': 'https://img.icons8.com/color/2x/mac-os--v2.gif'
     },
-    {
-      'name': 'Cash from ATM',
-      'image':
-          'https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-atm-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png'
-    },
-    {
-      'name': 'Netflix',
-      'image': 'https://img.icons8.com/color-glass/2x/netflix.png'
-    }
   ];
 
+  // items for bottom navigation 
+  final List<Map<String, dynamic>> _navBarItems = [
+    {
+      'icon':Icons.home_rounded, 
+      'label':'Accueil'
+    }, 
+    {
+      'icon':Icons.qr_code_scanner,
+      'label':'Qr Code'
+    }, 
+    {
+      'icon':Icons.contacts, 
+      'label':'Contact'
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/faceAvatar.png'),
+          ),
+        ),
+        title: Text(
+          "Marc-Ephrem",
+          style: TextStyle(color: Colors.white),
+        ),
+        titleSpacing: 0,
+        actions: [
+          IconContainer(icon: Icons.settings_outlined),
+          Gap(8),
+          IconContainer(icon: Icons.notifications_none)
+          
+        ],
+      ),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: IndexedStack(
@@ -55,22 +83,43 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 16),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Colors.black,
                       // borderRadius: BorderRadius.circular(32),
                     ),
                     child: Column(
                       children: [
+                        // payement
+                        Positioned(
+                          left: 0,
+                          bottom: 0,
+                          right: 0,
+                          top: 0,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 150,
+                                decoration: BoxDecoration(color: Colors.indigo),
+                              )
+                            ],
+                          ),
+                        ),
+
                         // padding 001
                         Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Column(
                             children: [
-                              Text(
-                                "Actions",
-                                style: TextStyle(
-                                    fontSize: 26,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "Magasin",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "jbm",
+                                  ),
+                                ),
                               ),
                               Container(
                                 height: 200,
@@ -89,9 +138,22 @@ class _HomePageState extends State<HomePage> {
                                             height: 155,
                                             width: 135,
                                             decoration: BoxDecoration(
-                                                color: Colors.amber,
-                                                borderRadius:
-                                                    BorderRadius.circular(30)),
+                                              color: primarColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.black.withOpacity(
+                                                      0.5), // couleur de l'ombre avec opacité
+                                                  spreadRadius:
+                                                      2, // étendre l'ombre
+                                                  blurRadius:
+                                                      5, // flou de l'ombre
+                                                  offset: Offset(0,
+                                                      3), // décalage de l'ombre
+                                                ),
+                                              ],
+                                            ),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -99,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   _transactions[index]["name"]!,
                                                   style: TextStyle(
-                                                    color: Colors.white, 
+                                                    color: Colors.white,
                                                   ),
                                                 ),
                                                 const SizedBox(
@@ -117,8 +179,9 @@ class _HomePageState extends State<HomePage> {
                                           Positioned(
                                             right: 20,
                                             child: Image(
-                                              image: AssetImage(
-                                                  _transactions[index]["image"]!),
+                                              image: NetworkImage(
+                                                  _transactions[index]
+                                                      ["image"]!),
                                             ),
                                           ),
                                         ],
@@ -171,95 +234,11 @@ class _HomePageState extends State<HomePage> {
                                     fontSize: 12, color: Colors.white),
                               ),
                               Gap(8),
-                              Container(
-                                height: 62,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: Color(0xFF1C1D21)),
-                                padding: EdgeInsets.symmetric(horizontal: 12),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                        backgroundImage:
-                                            AssetImage(AppImages.faceAvatar)),
-                                    Gap(8),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Marie-Emmanuelle",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white),
-                                          ),
-                                          Text(
-                                            "0xndhfhdf...kjueu",
-                                            style: TextStyle(
-                                                color: Color(0xFF525255)),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "-\$34.99",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Gap(8),
-                              Container(
-                                height: 62,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: Color(0xFF1C1D21)),
-                                padding: EdgeInsets.symmetric(horizontal: 12),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                        backgroundImage:
-                                            AssetImage(AppImages.faceAvatar)),
-                                    Gap(8),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Marie-Emmanuelle",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white),
-                                          ),
-                                          Text(
-                                            "0xndhfhdf...kjueu",
-                                            style: TextStyle(
-                                                color: Color(0xFF525255)),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      "-\$34.99",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Gap(8),
+                              CustomCard(avatarImage: AppImages.faceAvatar, name: "Marie-Emmanuelle", address:  '0xndhfhdf...kjueu', amount:'-\$34.99' )
                             ],
                           ),
-                        ))
+                        )
+                      )
                       ],
                     ),
                   ),
@@ -284,27 +263,14 @@ class _HomePageState extends State<HomePage> {
             pageIndex = idx;
           });
         },
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_rounded,
-            ),
-            label: "Accueil",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.qr_code_scanner,
-            ),
-            label: "Qr Code",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.contacts,
-            ),
-            label: "Contact",
-          ),
-        ],
-      ),
+        items: _navBarItems.map((item){
+          return BottomNavigationBarItem(
+            icon: Icon(item['icon']), 
+            label: item['label']
+          );
+        }
+      ).toList(),
+      )
     );
   }
 }
