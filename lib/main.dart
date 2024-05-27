@@ -1,10 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cryto_wallet_3/pages/intro_screen/intro_page.dart';
+import 'package:cryto_wallet_3/pages/swap_pay/swap_pay_const.dart';
 import 'package:cryto_wallet_3/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+
+  // charger tous les composants avant le lancement de l'application 
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 
@@ -16,8 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fees',
-      theme: lightMode,
-      home: IntroPage(),
+      // theme: lightMode,
+      theme:lightMode,
+      home: SwapPay(),
       debugShowCheckedModeBanner: false,
       );
   }

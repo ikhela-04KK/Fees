@@ -21,10 +21,9 @@ dependencies:
   provider:
   flutter_native_splash: 
   http: 
+  solana_web3: 
   flutter_smart_dialog: 
   awesome_notifications:
-  solana_web3: 
-  solana_wallet_adapter:
   shared_preferences:
   gap: ^3.0.1
   dots_indicator: ^3.0.0
