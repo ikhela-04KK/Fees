@@ -22,12 +22,14 @@ dependencies:
   flutter_native_splash: 
   http: 
   solana_web3: 
+  google_fonts:
   flutter_smart_dialog: 
   awesome_notifications:
   shared_preferences:
   gap: ^3.0.1
   dots_indicator: ^3.0.0
   crypto_font_icons: ^1.0.1
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +60,9 @@ flutter:
     - assets/images/faceAvatar.png
     - assets/images/money-recive.svg
     - assets/images/money-send.svg
+    - assets/images/solana_logo.png
+    - assets/images/usdticon.png
+    - assets/animation/
 
   fonts:
     - family: jbm
