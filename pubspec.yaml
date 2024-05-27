@@ -18,6 +18,14 @@ dependencies:
   flutter_animate: ^4.5.0
   animated_text_kit: ^4.2.2
   smooth_page_indicator: ^1.1.0
+  provider:
+  flutter_native_splash: 
+  http: 
+  flutter_smart_dialog: 
+  awesome_notifications:
+  solana_web3: 
+  solana_wallet_adapter:
+  shared_preferences:
   gap: ^3.0.1
   dots_indicator: ^3.0.0
   crypto_font_icons: ^1.0.1
