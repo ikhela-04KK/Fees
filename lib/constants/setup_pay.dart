@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:crypto_font_icons/crypto_font_icons.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class SetupPay extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "SOLDE",
                   style: TextStyle(
