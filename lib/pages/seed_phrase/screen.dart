@@ -2,94 +2,95 @@
 
 import 'package:cryto_wallet_3/pages/seed_phrase/button/copy_check_swap.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class SeedPhrase extends StatelessWidget {
   const SeedPhrase({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        centerTitle: true,
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        title: Text(
-          "Créer Portefeuille",
-          style: TextStyle(
-              fontFamily: "jbm", fontSize: 18, fontWeight: FontWeight.bold),
+    return SafeArea(
+      child: Scaffold(
+        
+        appBar: AppBar(
+          leading: Icon(Icons.arrow_back),
+          centerTitle: true,
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.black,
+          title: Text(
+            "Créer Portefeuille",
+            style: TextStyle(
+                fontFamily: "jbm", fontSize: 18, fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(height: 30,),
-            Text(
-              "Phrase Secrète",
-              style: TextStyle(
-                  fontFamily: "jbm", 
-                  fontSize: 24, 
-                  fontWeight: FontWeight.bold, 
-                  color: Colors.white
-                  ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              "Enregister votre phrase sécrète , \n Il servira à récupérer votre wallet en cas de perte",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color.fromARGB(255, 160, 154, 154),
-                  fontFamily: "jbm",
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-
-            // add gridViewBuilder 
-            Container(
-              height: 420,
-              child: GridView.builder(
-                itemCount: 12,
-                itemBuilder: (context , index) => ItemTile(index),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, 
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0,
-                  childAspectRatio: 3.5
-                ),
-                physics: NeverScrollableScrollPhysics(),
-              ),
-            ),
-            
-            IconChangeButton(),
-            ElevatedButton
-                  (
-                  onPressed: (){}, 
-          
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF9FE625),
-                    foregroundColor: Color.fromARGB(255, 4, 4, 4),
-                    padding: EdgeInsets.symmetric(horizontal: 125, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)
+        body: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 30,),
+              Text(
+                "Phrase Secrète",
+                style: TextStyle(
+                    fontFamily: "jbm", 
+                    fontSize: 24, 
+                    fontWeight: FontWeight.bold, 
+                    color: Colors.white
                     ),
-                    textStyle: TextStyle(
-                      fontSize: 14,
-                      fontFamily: "jbm",
-                      fontWeight: FontWeight.bold
-                    )
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Enregister votre phrase sécrète , \n Il servira à récupérer votre wallet en cas de perte",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 160, 154, 154),
+                    fontFamily: "jbm",
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+      
+              // add gridViewBuilder 
+              Container(
+                height: 420,
+                child: GridView.builder(
+                  itemCount: 12,
+                  itemBuilder: (context , index) => ItemTile(index),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, 
+                    crossAxisSpacing: 10.0,
+                    mainAxisSpacing: 10.0,
+                    childAspectRatio: 3.5
                   ),
-                  child: Text(
-                    "Next",
-                  )
-                  )
-          ],
+                  physics: NeverScrollableScrollPhysics(),
+                ),
+              ),
+              
+              IconChangeButton(),
+              ElevatedButton
+                    (
+                    onPressed: (){}, 
+            
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF9FE625),
+                      foregroundColor: Color.fromARGB(255, 4, 4, 4),
+                      padding: EdgeInsets.symmetric(horizontal: 125, vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)
+                      ),
+                      textStyle: TextStyle(
+                        fontSize: 14,
+                        fontFamily: "jbm",
+                        fontWeight: FontWeight.bold
+                      )
+                    ),
+                    child: Text(
+                      "Next",
+                    )
+                    )
+            ],
+          ),
         ),
       ),
     );
