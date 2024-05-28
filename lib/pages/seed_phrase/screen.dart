@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cryto_wallet_3/pages/seed_phrase/button/copy_check_swap.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class SeedPhrase extends StatelessWidget {
   const SeedPhrase({super.key});
@@ -8,41 +10,50 @@ class SeedPhrase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
+        leading: Icon(Icons.arrow_back),
         centerTitle: true,
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: Text(
-          "Créer un portefeuille",
+          "Créer Portefeuille",
           style: TextStyle(
-              fontFamily: "jbm", fontSize: 14, fontWeight: FontWeight.bold),
+              fontFamily: "jbm", fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
       body: Center(
         child: Column(
           children: [
+            SizedBox(height: 30,),
             Text(
-              "Phrase secrète",
+              "Phrase Secrète",
               style: TextStyle(
-                  fontFamily: "jbm", fontSize: 16, fontWeight: FontWeight.bold),
+                  fontFamily: "jbm", 
+                  fontSize: 24, 
+                  fontWeight: FontWeight.bold, 
+                  color: Colors.white
+                  ),
             ),
             SizedBox(
-              height: 35,
+              height: 20,
             ),
             Text(
-              "Enregister votre phrase sécrète dans un lieu sûr ",
+              "Enregister votre phrase sécrète , \n Il servira à récupérer votre wallet en cas de perte",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Color.fromARGB(255, 200, 176, 176),
+                  color: Color.fromARGB(255, 160, 154, 154),
                   fontFamily: "jbm",
-                  fontSize: 10,
+                  fontSize: 12,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 35,
+              height: 20,
             ),
 
             // add gridViewBuilder 
             Container(
-              height: 450,
+              height: 420,
               child: GridView.builder(
                 itemCount: 12,
                 itemBuilder: (context , index) => ItemTile(index),
@@ -50,37 +61,34 @@ class SeedPhrase extends StatelessWidget {
                   crossAxisCount: 2, 
                   crossAxisSpacing: 10.0,
                   mainAxisSpacing: 10.0,
-                  childAspectRatio: 2.5
+                  childAspectRatio: 3.5
                 ),
                 physics: NeverScrollableScrollPhysics(),
               ),
             ),
-
-            SizedBox(
-              height: 35,
-            ),
-            TextButton.icon(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  foregroundColor: Color(0xFF9FE625),
-                  textStyle: TextStyle(
-                    fontSize: 14,
-                    fontFamily: "jbm",
-                    
+            
+            IconChangeButton(),
+            ElevatedButton
+                  (
+                  onPressed: (){}, 
+          
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF9FE625),
+                    foregroundColor: Color.fromARGB(255, 4, 4, 4),
+                    padding: EdgeInsets.symmetric(horizontal: 125, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)
+                    ),
+                    textStyle: TextStyle(
+                      fontSize: 14,
+                      fontFamily: "jbm",
+                      fontWeight: FontWeight.bold
+                    )
                   ),
-                ),
-                label: Text(
-                  "Copier dans le presse-papier", 
-                  style: TextStyle(
-                    color: Color(0xFF9FE625)
-                  ),
-                ),
-                icon: Icon(
-                  Icons.copy_all, 
-                  size: 20.0,
-                  color: Color(0xFF053B06),
-                ),
-            ),
+                  child: Text(
+                    "Next",
+                  )
+                  )
           ],
         ),
       ),
@@ -88,6 +96,8 @@ class SeedPhrase extends StatelessWidget {
   }
 }
 
+
+//  for seed Phrase
 class ItemTile extends StatelessWidget {
   final int itemNo;
 
@@ -97,10 +107,10 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // final Color color = Colors.primaries[itemNo % Colors.primaries.length];
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 85, 86, 90).withOpacity(0.3),
+          color: Color.fromARGB(255, 30, 30, 31).withOpacity(0.7),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Row(
@@ -132,3 +142,4 @@ class ItemTile extends StatelessWidget {
     );
   }
 }
+
