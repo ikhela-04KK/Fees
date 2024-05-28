@@ -55,6 +55,7 @@ class SeedPhrase extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
               ),
             ),
+
             SizedBox(
               height: 35,
             ),
@@ -106,7 +107,7 @@ class ItemTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '0${itemNo+1}.',
+              '${itemNo+1 <10 ? '0' : ''}${itemNo+1}.',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF454649),
