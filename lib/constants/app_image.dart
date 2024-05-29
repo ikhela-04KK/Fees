@@ -22,5 +22,9 @@ class AppImages {
   static const String moneySend = 'assets/images/money-send.png';
   static const String avatarPng = 'assets/images/Avatar.png';
   static const String faceAvatar = 'assets/images/faceAvatar.png';
+}
 
+class AppAnims{
+  static const String finger = "assets/animation/fingerprint.json"; 
+  static const String checkInBox = "assets/animation/check_in_box.json";
 }

@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cryto_wallet_3/constants/app_image.dart';
 import 'package:cryto_wallet_3/services/local_auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
 class FingerPrint extends StatefulWidget {
@@ -13,9 +13,50 @@ class FingerPrint extends StatefulWidget {
 }
 
 class _FingerPrintState extends State<FingerPrint> {
-  bool authenticate = false; 
+  bool authenticate = false;
+  String assets = AppAnims.finger;
 
-  // verifier la capacité de prise en charge de la biometrie 
+
+  // verifier la capacité de prise en charge de la biometrie
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showOverlay(context);
+    });
+  }
+  void _showOverlay(BuildContext context) {
+    OverlayState overlayState = Overlay.of(context)!;
+    OverlayEntry overlayEntry = OverlayEntry(
+      builder: (context) => Positioned(
+        top: 100,
+        left: MediaQuery.of(context).size.width / 4,
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
+            padding: EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              color: Colors.black54,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              'Tapez ici pour scanner votre empreinte',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    overlayState.insert(overlayEntry);
+
+    Future.delayed(Duration(seconds: 3), () {
+      overlayEntry.remove();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,7 +84,7 @@ class _FingerPrintState extends State<FingerPrint> {
                 "Plus de sécurité avec l'empreinte digital pour bien conserver votre wallet.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color.fromARGB(255, 149, 137, 137),
+                  color: Color(0xFF605C5C),
                 ),
               ),
               SizedBox(
@@ -51,14 +92,22 @@ class _FingerPrintState extends State<FingerPrint> {
               ),
               GestureDetector(
                 onTap: () async {
-                  final auth  = await LocalAuth.authenticate();
-                  setState((){
-                      authenticate = auth;
+                  final auth = await LocalAuth.authenticate();
+                  setState(() {
+                    authenticate = auth;
                   });
+                  // change animation
+                  if (authenticate) {
+                    setState(() {
+                      assets = AppAnims.checkInBox;
+                    });
+                  }
                 },
-                child: Lottie.asset(
-                  "assets/animation/fingerprint.json",
-                  repeat: false
+                child: Tooltip(
+                  
+                  message: 'Touche to scan your finger',
+                  
+                  child: Lottie.asset(assets, repeat: false),
                 ),
               ),
               SizedBox(height: 90),
