@@ -1,17 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cryto_wallet_3/services/local_auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
-class FingerPrint extends StatelessWidget {
-  const FingerPrint({super.key});
+class FingerPrint extends StatefulWidget {
+  FingerPrint({super.key});
 
+  @override
+  State<FingerPrint> createState() => _FingerPrintState();
+}
+
+class _FingerPrintState extends State<FingerPrint> {
+  bool authenticate = false; 
+
+  // verifier la capacité de prise en charge de la biometrie 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text("Biométrique"),
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
           centerTitle: true,
           leading: Icon(Icons.arrow_back),
         ),
@@ -28,19 +40,28 @@ class FingerPrint extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                "Plus de sécurité avec l'empreinte digital pour bien conserver votre wallet",
+                "Plus de sécurité avec l'empreinte digital pour bien conserver votre wallet.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color.fromARGB(255, 200, 176, 176),
+                  color: Color.fromARGB(255, 149, 137, 137),
                 ),
               ),
               SizedBox(
                 height: 65,
               ),
-              Lottie.asset(
-                "assets/animation/fingerprint.json",
+              GestureDetector(
+                onTap: () async {
+                  final auth  = await LocalAuth.authenticate();
+                  setState((){
+                      authenticate = auth;
+                  });
+                },
+                child: Lottie.asset(
+                  "assets/animation/fingerprint.json",
+                  repeat: false
+                ),
               ),
-              SizedBox(height: 116),
+              SizedBox(height: 90),
               TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
@@ -49,10 +70,10 @@ class FingerPrint extends StatelessWidget {
                       fontSize: 14,
                       fontFamily: "jbm",
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   ),
                   child: Text("Quitter maintenant")),
-              SizedBox(height: 6),
+              // SizedBox(height: 6),
               ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

@@ -30,6 +30,7 @@ dependencies:
   dots_indicator: ^3.0.0
   crypto_font_icons: ^1.0.1
   lottie: ^3.1.2
+  local_auth: ^2.2.0
 
 dev_dependencies:
   flutter_test:
