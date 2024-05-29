@@ -28,22 +28,24 @@ class _FingerPrintState extends State<FingerPrint> {
   void _showOverlay(BuildContext context) {
     OverlayState overlayState = Overlay.of(context)!;
     OverlayEntry overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        top: 100,
-        left: MediaQuery.of(context).size.width / 4,
-        child: Material(
-          color: Colors.transparent,
-          child: Container(
-            padding: EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              color: Colors.black54,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Text(
-              'Tapez ici pour scanner votre empreinte',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
+      builder: (context) => Center(
+        child: Positioned(
+          top: 100,
+          left: MediaQuery.of(context).size.width / 3,
+          child: Material(
+            color: Colors.transparent,
+            child: Container(
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.black54,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Text(
+                'Tapez ici pour scanner votre empreinte',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
               ),
             ),
           ),
@@ -52,7 +54,7 @@ class _FingerPrintState extends State<FingerPrint> {
     );
     overlayState.insert(overlayEntry);
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 15), () {
       overlayEntry.remove();
     });
   }
@@ -99,16 +101,11 @@ class _FingerPrintState extends State<FingerPrint> {
                   // change animation
                   if (authenticate) {
                     setState(() {
-                      assets = AppAnims.checkInBox;
+                      assets = AppAnims.checkBoldRepeat;
                     });
                   }
                 },
-                child: Tooltip(
-                  
-                  message: 'Touche to scan your finger',
-                  
-                  child: Lottie.asset(assets, repeat: false),
-                ),
+                child: Lottie.asset(assets, repeat: true),
               ),
               SizedBox(height: 90),
               TextButton(

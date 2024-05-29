@@ -27,4 +27,6 @@ class AppImages {
 class AppAnims{
   static const String finger = "assets/animation/fingerprint.json"; 
   static const String checkInBox = "assets/animation/check_in_box.json";
+  static const String checkBoldRepeat = "assets/animation/checkBoldRepeat.json"; 
+  static const String checkIn = "assets/animation/checkOut.json"; 
 }
