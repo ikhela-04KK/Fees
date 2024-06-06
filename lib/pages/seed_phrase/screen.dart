@@ -86,7 +86,7 @@ class SeedPhrase extends StatelessWidget {
                       )
                     ),
                     child: Text(
-                      "Next",
+                      "Suivant",
                     )
                     )
             ],

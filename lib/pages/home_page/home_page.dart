@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
@@ -90,12 +91,16 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.black,
         body: SafeArea(
+          
           child: IndexedStack(
+            
             // index: pageIndex,
             children: [
               Column(
+                
                 children: [
                   Expanded(
+                    
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 16),
                       decoration: BoxDecoration(

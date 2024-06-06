@@ -64,6 +64,8 @@ flutter:
     - assets/images/solana_logo.png
     - assets/images/usdticon.png
     - assets/animation/
+    - assets/images/
+    - assets/images/usd-coin-usdc-logo.svg
 
   fonts:
     - family: jbm

@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 // import 'package:cryto_wallet_3/pages/intro_screen/intro_page.dart';
-import 'package:cryto_wallet_3/pages/fingerprint/screen.dart';
-// import 'package:cryto_wallet_3/pages/seed_phrase/screen.dart';
-// import 'package:cryto_wallet_3/pages/wallet/screen/options.dart';
+// import 'package:cryto_wallet_3/pages/fingerprint/screen.dart';
+import 'package:cryto_wallet_3/pages/home_page/home_page.dart';
+import 'package:cryto_wallet_3/pages/seed_phrase/screen.dart';
+import 'package:cryto_wallet_3/pages/wallet/screen/options.dart';
 // import 'package:cryto_wallet_3/pages/swap_pay/swap_pay_const.dart';
 import 'package:cryto_wallet_3/themes/light_mode.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Fees',
       // theme: lightMode,
       theme:darkMode,
-      home: FingerPrint(),   // OptionScreen(),
+      home: HomePage(),   // OptionScreen(),
       debugShowCheckedModeBanner: false,
       );
   }
