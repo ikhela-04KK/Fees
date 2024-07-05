@@ -1,6 +1,4 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-import 'package:crypto_font_icons/crypto_font_icons.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,7 +14,6 @@ class SetupPay extends StatelessWidget {
         height: 250,
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 31, 30, 32),
-      
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.all(16),
@@ -87,7 +84,8 @@ class SetupPay extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.white),
+                      color: Colors.white
+                  ),
                 ),
 
               ],
@@ -122,7 +120,9 @@ class SetupPay extends StatelessWidget {
                 ),
                 const Text(
                   "DERNIERE 24H",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white
+                  ),
                 ),
               ],
             ),

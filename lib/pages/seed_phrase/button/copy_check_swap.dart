@@ -1,6 +1,8 @@
 // For Copy to clipboard
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class IconChangeButton extends StatefulWidget {
@@ -16,7 +18,7 @@ class _IconChangeButtonState extends State<IconChangeButton> {
   void _toggleIcon() {
     if(!_isCopied){
       setState(() {
-      _isCopied = !_isCopied;
+      Random();
     });
     }
     

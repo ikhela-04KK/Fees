@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:math';
+
 import 'package:cryto_wallet_3/constants/app_image.dart';
 import 'package:cryto_wallet_3/services/local_auth_service.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,8 @@ class FingerPrint extends StatefulWidget {
 
 class _FingerPrintState extends State<FingerPrint> {
   bool authenticate = false;
+  int b = 4;
+  
   String assets = AppAnims.finger;
 
 
@@ -107,6 +111,7 @@ class _FingerPrintState extends State<FingerPrint> {
                 },
                 child: Lottie.asset(assets, repeat: true),
               ),
+              
               SizedBox(height: 90),
               TextButton(
                   onPressed: () {},
@@ -121,10 +126,17 @@ class _FingerPrintState extends State<FingerPrint> {
                   child: Text("Quitter maintenant")),
               // SizedBox(height: 6),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      final a = 4; 
+                      b = a+b;
+
+                    });
+                  ;
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF9FE625),
-                      foregroundColor: Color.fromARGB(255, 4, 4, 4),
+                      foregroundColor: Color.fromARGB(, 4, 4, 4),
                       padding:
                           EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                       shape: RoundedRectangleBorder(

@@ -36,9 +36,7 @@ class OptionScreen extends StatelessWidget {
 
                     ),
                   ),
-                  
                   SizedBox(height: 116),
-
                   TextButton(
                     onPressed: (){}, 
                     style: TextButton.styleFrom(

@@ -132,7 +132,8 @@ class SignUp extends StatelessWidget {
                           SizedBox(height: 40),
                   ElevatedButton
                   (
-                  onPressed: (){}, 
+                  onPressed: (){
+                  }, 
           
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF9FE625),
