@@ -49,9 +49,5 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
-      - name: Build APK with Flutter
-        script: |
-          flutter build apk --debug
     artifacts:
-      - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
