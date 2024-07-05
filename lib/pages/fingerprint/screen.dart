@@ -136,7 +136,7 @@ class _FingerPrintState extends State<FingerPrint> {
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF9FE625),
-                      foregroundColor: Color.fromARGB(, 4, 4, 4),
+                      foregroundColor: Color.fromARGB(4, 4, 4, 4),
                       padding:
                           EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                       shape: RoundedRectangleBorder(
