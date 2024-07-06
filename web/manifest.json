@@ -1,6 +1,6 @@
 {
-    "name": "cryto_wallet_3",
-    "short_name": "cryto_wallet_3",
+    "name": "fees",
+    "short_name": "fees",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
