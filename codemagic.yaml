@@ -20,7 +20,7 @@ workflows:
           cat >> "$CM_BUILD_DIR/android/key.properties" << EOF
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEYSTORE_KEY_PASSWORD
-          keyAlias=deployment_tutorial
+          keyAlias=fees_deployment
           storeFile=/tmp/keystore.jks
           EOF
       - name: Build AAB

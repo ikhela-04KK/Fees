@@ -67,7 +67,10 @@ android {
             storePassword keystoreProperties['storePassword']
         }
 }
-
+ storePassword=$KEYSTORE_PASSWORD
+          keyPassword=$KEYSTORE_KEY_PASSWORD
+          keyAlias=deployment_tutorial
+          storeFile=/tmp/keystore.jks
 
     buildTypes {
         release {
