@@ -17,7 +17,7 @@ workflows:
       - name: Setup the keystore
         script: |
           echo $KEYSTORE_FILE | base64 --decode > /tmp/keystore.jks
-          cat >> "$CM_BUILD_DIR/android/key.properties" << EOF
+          cat >> "$CM_BUILD_DIR/android/keystore.properties" << EOF
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEYSTORE_KEY_PASSWORD
           keyAlias=fees_deployment
