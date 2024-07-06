@@ -20,20 +20,20 @@ workflows:
           cat >> "$CM_BUILD_DIR/android/keystore.properties" << EOF
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEYSTORE_KEY_PASSWORD
-          keyAlias=fees_deployment
+          keyAlias=upload
           storeFile=/tmp/keystore.jks
           EOF
       - name: Build AAB
         script: |
           cd $CM_BUILD_DIR
           flutter packages pub get
-          flutter build appbundle --build-number=$PROJECT_BUILD_NUMBER
+          flutter build appbundle 
     artifacts:
       - build/**/outputs/**/*.aab
     publishing:
       google_play:
         credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT
-        track: internal
+        track: alpha
         submit_as_draft: true
   android-workflow:
     name: Android Workflow
