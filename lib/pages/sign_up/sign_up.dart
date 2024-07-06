@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:cryto_wallet_3/constants/sizes.dart';
-import 'package:cryto_wallet_3/pages/sign_up/SignUpHeaderWidget.dart';
-import 'package:cryto_wallet_3/constants/images.dart';
+import 'package:fees/constants/sizes.dart';
+import 'package:fees/pages/sign_up/SignUpHeaderWidget.dart';
+import 'package:fees/constants/images.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {

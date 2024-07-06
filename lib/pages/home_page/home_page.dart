@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unused_element, sized_box_for_whitespace
-import 'package:cryto_wallet_3/constants/app_image.dart';
-import 'package:cryto_wallet_3/constants/colors.dart';
-import 'package:cryto_wallet_3/constants/historyPaiement.dart';
-import 'package:cryto_wallet_3/constants/iconContainer.dart';
-import 'package:cryto_wallet_3/constants/setup_pay.dart';
+import 'package:fees/constants/app_image.dart';
+import 'package:fees/constants/colors.dart';
+import 'package:fees/constants/historyPaiement.dart';
+import 'package:fees/constants/iconContainer.dart';
+import 'package:fees/constants/setup_pay.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

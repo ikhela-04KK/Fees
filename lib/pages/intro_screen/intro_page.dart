@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:cryto_wallet_3/constants/colors.dart';
-import 'package:cryto_wallet_3/pages/intro_screen/onboarding.dart';
+import 'package:fees/constants/colors.dart';
+import 'package:fees/pages/intro_screen/onboarding.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/material.dart';
 

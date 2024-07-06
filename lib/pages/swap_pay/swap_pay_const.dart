@@ -1,7 +1,7 @@
 // // ignore_for_file: prefer_const_constructors
 
-// import 'package:cryto_wallet_3/helpers/routes.dart';
-// import 'package:cryto_wallet_3/pages/swap_pay/review_swap_screen.dart';
+// import 'package:fees/helpers/routes.dart';
+// import 'package:fees/pages/swap_pay/review_swap_screen.dart';
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
 // import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';

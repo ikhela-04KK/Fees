@@ -1,4 +1,4 @@
-package com.example.cryto_wallet_3
+package com.fees.app
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

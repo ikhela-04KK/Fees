@@ -1,7 +1,7 @@
 // // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-// import 'package:cryto_wallet_3/constants/solana_helper.dart';
-// import 'package:cryto_wallet_3/constants/swap_pop_helper.dart';
+// import 'package:fees/constants/solana_helper.dart';
+// import 'package:fees/constants/swap_pop_helper.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 

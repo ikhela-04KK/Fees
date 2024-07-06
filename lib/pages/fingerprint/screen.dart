@@ -2,8 +2,8 @@
 
 import 'dart:math';
 
-import 'package:cryto_wallet_3/constants/app_image.dart';
-import 'package:cryto_wallet_3/services/local_auth_service.dart';
+import 'package:fees/constants/app_image.dart';
+import 'package:fees/services/local_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

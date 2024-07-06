@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:cryto_wallet_3/pages/seed_phrase/button/copy_check_swap.dart';
+import 'package:fees/pages/seed_phrase/button/copy_check_swap.dart';
 import 'package:flutter/material.dart';
 
 class SeedPhrase extends StatelessWidget {
