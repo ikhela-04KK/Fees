@@ -23,6 +23,7 @@ class _FingerPrintState extends State<FingerPrint> {
 
   // verifier la capacité de prise en charge de la biometrie
   @override
+  /*
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -44,39 +45,35 @@ class _FingerPrintState extends State<FingerPrint> {
                 color: Colors.black54,
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: Text(
-                'Tapez ici pour scanner votre empreinte',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.0,
-                ),
-              ),
             ),
           ),
         ),
       ),
     );
-    overlayState.insert(overlayEntry);
+    //overlayState.insert(overlayEntry);
 
     Future.delayed(Duration(seconds: 15), () {
       overlayEntry.remove();
     });
   }
 
+   */
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Biométrique"),
+          title: Text("Authentification"),
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
           centerTitle: true,
-          leading: Icon(Icons.arrow_back),
+          //leading: Icon(Icons.arrow_back),
         ),
         body: Center(
           child: Column(
             children: [
+              /*
               Text(
                 "Configurer Empreinte Digitale",
                 style: TextStyle(
@@ -85,7 +82,10 @@ class _FingerPrintState extends State<FingerPrint> {
                     fontFamily: "jbm",
                     fontWeight: FontWeight.bold),
               ),
+              */
+
               SizedBox(height: 20),
+              /*
               Text(
                 "Plus de sécurité avec l'empreinte digital pour bien conserver votre wallet.",
                 textAlign: TextAlign.center,
@@ -93,6 +93,7 @@ class _FingerPrintState extends State<FingerPrint> {
                   color: Color(0xFF605C5C),
                 ),
               ),
+              */
               SizedBox(
                 height: 65,
               ),
@@ -109,10 +110,11 @@ class _FingerPrintState extends State<FingerPrint> {
                     });
                   }
                 },
-                child: Lottie.asset(assets, repeat: true),
+                child: Lottie.asset(assets, repeat: false),
               ),
               
               SizedBox(height: 90),
+              /*
               TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
@@ -123,20 +125,21 @@ class _FingerPrintState extends State<FingerPrint> {
                     ),
                     // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   ),
+
                   child: Text("Quitter maintenant")),
+              */
               // SizedBox(height: 6),
+              /*
               ElevatedButton(
                   onPressed: () {
                     setState(() {
                       final a = 4; 
                       b = a+b;
-
                     });
-                  ;
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF9FE625),
-                      foregroundColor: Color.fromARGB(4, 4, 4, 4),
+                      foregroundColor: Colors.black,
                       padding:
                           EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                       shape: RoundedRectangleBorder(
@@ -145,9 +148,13 @@ class _FingerPrintState extends State<FingerPrint> {
                           fontSize: 14,
                           fontFamily: "jbm",
                           fontWeight: FontWeight.bold)),
+
+
                   child: Text(
                     "Suivant",
-                  ))
+                  )
+              )
+              */
             ],
           ),
         ),

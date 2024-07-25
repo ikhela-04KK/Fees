@@ -16,18 +16,18 @@ class SignUp extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(tDefaultSize),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SignUpHeaderWidget(
-                  title: "Rejoignez-Nous",
+                  title: "Créer un portefeuille",
                   image: tWelcomeScreenImage,
-                  subTitle: "Créer votre profile pour rejoindre au nouveau système financier",
+                  onBackPressed: (){},
                 ), 
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 30.0-10.0),
+                  padding: EdgeInsets.symmetric(vertical:80, horizontal: 40),
                   child: Form(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
                         TextFormField(
@@ -99,14 +99,14 @@ class SignUp extends StatelessWidget {
 
                         TextFormField(
                           decoration: InputDecoration(
-                            label: Text("Mot De Passe"), 
+                            label: Text("Mot De Passe"),
                             prefixIcon: Icon(
-                              Icons.security_outlined, 
+                              Icons.security_outlined,
                               color:Color(0xFF9FE625) ,
-                            ), 
+                            ),
                             border: OutlineInputBorder(),
                             labelStyle: TextStyle(color: Colors.white),
-                            iconColor: Color(0xFF9FE625), 
+                            iconColor: Color(0xFF9FE625),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 2.0, color:Color(0xFF28536B) )
                             )

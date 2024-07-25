@@ -22,6 +22,10 @@ class AppImages {
   static const String moneySend = 'assets/images/money-send.png';
   static const String avatarPng = 'assets/images/Avatar.png';
   static const String faceAvatar = 'assets/images/faceAvatar.png';
+  static const String faceOne = 'assets/images/1.png';
+  static const String faceTwo = 'assets/images/2.png';
+  static const String faceThree = 'assets/images/3.png';
+  static const String faceFour = 'assets/images/4.png';
 }
 
 class AppAnims{

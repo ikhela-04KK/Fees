@@ -1,28 +1,31 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpHeaderWidget extends StatelessWidget {
-  const SignUpHeaderWidget(
-    {
-      super.key, 
-      required this.title,
-      required this.image, 
-      required this.subTitle
-    });
+  const SignUpHeaderWidget({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.onBackPressed,
+  });
 
-  final String image , title , subTitle; 
+  final String image, title;
+  final VoidCallback onBackPressed;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          image
-        ), 
-        Text(title,style: TextStyle()), 
-        Text(subTitle, style:TextStyle())
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            color: Colors.white,
+            fontFamily: "jbm",
+          ),
+        ),
       ],
     );
   }

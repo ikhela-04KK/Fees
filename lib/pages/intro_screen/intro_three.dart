@@ -36,7 +36,7 @@ class IntroTwo extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(40.0),
             child: Text(
-              "Inscrivez-vous, connectez votre portefeuille Solana et commencez à payer en quelques minutes.", 
+              "Inscrivez-vous, connectez votre portefeuille Solana et commencez à payer en quelques seconde.",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white, 

@@ -36,7 +36,7 @@ class IntroThree extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(40.0),
             child: Text(
-              "Découvrez la puissance de transactions instantanées, sécurisées et respectueuses de l'environnement.", 
+              "Découvrez la puissance de transactions instantanées, sécurisées et respectueuses de l'environnement",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white, 

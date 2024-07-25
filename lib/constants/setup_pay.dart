@@ -80,7 +80,7 @@ class SetupPay extends StatelessWidget {
                 ),
                 SizedBox(width: 8,),
                 const Text(
-                  "680.000 XOF",
+                  "409.540,27 XOF",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -147,7 +147,7 @@ class SetupPay extends StatelessWidget {
                           width: 8,
                         ),
                         Text(
-                          "Send",
+                          "Envoyer",
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
@@ -170,7 +170,7 @@ class SetupPay extends StatelessWidget {
                           width: 8,
                         ),
                         Text(
-                          "Receive",
+                          "Acheter",
                           style: TextStyle(color: Colors.white),
                         ),
                       ],

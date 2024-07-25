@@ -33,32 +33,32 @@ class _HomePageState extends State<HomePage> {
   ];
   final List<Map<String, String>> _cardData = [
     {
-      'avatarImage': AppImages.faceAvatar,
-      'name': 'Marie-Emmanuelle',
-      'address': '0xndhfhdf...kjueu',
-      'amount': '-\$34.99',
+      'avatarImage': AppImages.faceOne,
+      'name': 'Overstock',
+      'address': '0xabc...245',
+      'amount': '-\$25.99',
     },
     {
-      'avatarImage': AppImages.faceAvatar,
-      'name': 'John Doe',
+      'avatarImage': AppImages.faceTwo,
+      'name': 'NewEgg',
       'address': '0xabc...123',
       'amount': '-\$10.50',
     },
     {
       'avatarImage': AppImages.faceAvatar,
-      'name': 'John Doe',
+      'name': 'Shopify',
+      'address': '0xabc...126',
+      'amount': '-\$10.50',
+    },
+    {
+      'avatarImage': AppImages.faceFour,
+      'name': 'Overstock',
       'address': '0xabc...123',
       'amount': '-\$10.50',
     },
     {
       'avatarImage': AppImages.faceAvatar,
-      'name': 'John Doe',
-      'address': '0xabc...123',
-      'amount': '-\$10.50',
-    },
-    {
-      'avatarImage': AppImages.faceAvatar,
-      'name': 'John Doe',
+      'name': 'NewEgg',
       'address': '0xabc...123',
       'amount': '-\$10.50',
     },
@@ -67,7 +67,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        
         appBar: AppBar(
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
@@ -75,11 +74,11 @@ class _HomePageState extends State<HomePage> {
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/faceAvatar.png'),
+              backgroundImage: AssetImage('assets/images/4.png'),
             ),
           ),
           title: Text(
-            "Marc-Ephrem",
+            "Synelia",
             style: TextStyle(color: Colors.white),
           ),
           titleSpacing: 0,
@@ -117,6 +116,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.all(12.0),
                             child: Column(
                               children: [
+                                /*
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
@@ -129,6 +129,8 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
+                                */
+                                /*
                                 Container(
                                   height: 70,
                                   width: double.infinity,
@@ -144,25 +146,28 @@ class _HomePageState extends State<HomePage> {
                                               padding:EdgeInsets.only(bottom: 12),
                                               height: 50,
                                               width: 50,
-                                              
+
                                               decoration: BoxDecoration(
                                                 color: primarColor,
                                                 borderRadius:BorderRadius.circular(30),
                                               ),
-                                              // child: ClipRRect(
-                                              //   borderRadius:
-                                              //       BorderRadius.circular(30),
-                                              //   child: Image.asset(
-                                              //     _transactions[index]
-                                              //         ["image"]!,
-                                              //     fit: BoxFit.cover,
-                                              //   ),
-                                              // ),
+                                              child: ClipRRect(
+                                                 borderRadius:
+                                                     BorderRadius.circular(30),
+                                                 child: Image.asset(
+                                                   _transactions[index]
+                                                       ["image"]!,
+                                                   fit: BoxFit.cover,
+
+
+                                                 ),
+                                               ),
                                             )
                                           ],
                                         );
                                       }),
                                 ),
+                                */
                               ],
                             ),
                           ),
