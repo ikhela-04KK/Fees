@@ -27,13 +27,20 @@ workflows:
         script: |
           cd $CM_BUILD_DIR
           flutter packages pub get
-          flutter build appbundle 
+          flutter build appbundle --build-number=$PROJECT_BUILD_NUMBER
     artifacts:
       - build/**/outputs/**/*.aab
     publishing:
+      email:
+        recipients:
+          - kankoffi36@gmail.com
+          - lingardkent@gmail.com
+        notify:
+          success: true
+          failure: false
       google_play:
         credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT
-        track: alpha
+        track: internal
         submit_as_draft: true
   android-workflow:
     name: Android Workflow
@@ -49,5 +56,29 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
+      - name: Create debug and test APK
+        script: |
+          set -ex
+          cd android
+          ./gradlew app:assembleAndroidTest
+          ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/app_test.dart"
+      - name: Run Firebase Test Lab tests
+        script: |
+          set -ex
+
+          echo $GCLOUD_KEY_FILE | base64 --decode > ./gcloud_key_file.json
+
+          gcloud auth activate-service-account --key-file=gcloud_key_file.json
+
+          gcloud --quiet config set project $FIREBASE_PROJECT
+
+          gcloud firebase test android run \
+            --type instrumentation \
+            --app build/app/outputs/apk/debug/app-debug.apk \
+            --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
+            --timeout 3m
     artifacts:
       - build/**/outputs/**/*.aab
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
