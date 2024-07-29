@@ -15,10 +15,11 @@ if (localPropertiesFile.exists()) {
 }
 
 
-def keystoreProperties = new Properties()
+def keystoreProperties
+keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('keystore.properties')
 if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    keystoreProperties.load new FileInputStream(keystorePropertiesFile)
 }
 
 
@@ -55,7 +56,7 @@ android {
         applicationId "com.fees.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
