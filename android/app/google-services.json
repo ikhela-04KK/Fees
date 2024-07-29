@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "425516267215",
+    "project_id": "fess-428518",
+    "storage_bucket": "fess-428518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425516267215:android:dd553d8c9aae930aac69ba",
+        "android_client_info": {
+          "package_name": "com.fees.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425516267215-8ujuchr916a30j2s22v3aarqusn29ts8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkyePUGy5mkLO03L-hOWggUvt_oZFyZEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425516267215-8ujuchr916a30j2s22v3aarqusn29ts8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-// import 'package:fees/pages/intro_screen/intro_page.dart';
-// import 'package:fees/pages/fingerprint/screen.dart';
 import 'package:fees/pages/fingerprint/screen.dart';
 import 'package:fees/pages/home_page/home_page.dart';
 import 'package:fees/pages/seed_phrase/screen.dart';
@@ -34,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fees',
       theme:darkMode,
-      home: HomePage(),   // OptionScreen(),
+      home: HomePage(),   // OptionScreen(),OO
       debugShowCheckedModeBanner: false,
       );
   }

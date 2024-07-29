@@ -17,7 +17,7 @@ workflows:
       - name: Setup the keystore
         script: |
           echo $KEYSTORE_FILE | base64 --decode > /tmp/keystore.jks
-          cat >> "$CM_BUILD_DIR/android/keystore.properties" << EOF
+          cat >> "$CM_BUILD_DIR/android/keystore.properjties" << EOF
           storePassword=$KEYSTORE_PASSWORD
           keyPassword=$KEYSTORE_KEY_PASSWORD
           keyAlias=upload
@@ -65,13 +65,9 @@ workflows:
       - name: Run Firebase Test Lab tests
         script: |
           set -ex
-
           echo $GCLOUD_KEY_FILE | base64 --decode > ./gcloud_key_file.json
-
           gcloud auth activate-service-account --key-file=gcloud_key_file.json
-
           gcloud --quiet config set project $FIREBASE_PROJECT
-
           gcloud firebase test android run \
             --type instrumentation \
             --app build/app/outputs/apk/debug/app-debug.apk \
