@@ -1,19 +1,23 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SuccessPage(),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: SuccessPage(),
+//     );
+//   }
+// }
 
 class SuccessPage extends StatelessWidget {
+  const SuccessPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,15 +30,15 @@ class SuccessPage extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                width: 100,
-                height: 100,
+                width: 200,
+                height: 200,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.green, width: 4),
                 ),
                 child: Icon(
-                  Icons.check,
-                  size: 50,
+                  Iconsax.send_2,
+                  size: 100,
                   color: Colors.green,
                 ),
               ),
@@ -55,9 +59,9 @@ class SuccessPage extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(
-                    Icons.account_balance_wallet,
+                    Iconsax.wallet,
                     color: Colors.white,
-                    size: 30,
+                    size: 40,
                   ),
                   SizedBox(width: 10),
                   Column(

@@ -19,7 +19,6 @@ class IntroOne extends StatelessWidget {
             // width: 300,
             height: 200,
           ),
-
           const SizedBox(height: 20,), 
           Text(
             "Rejoignez la révolution des paiements", 

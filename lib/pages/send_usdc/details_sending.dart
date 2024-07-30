@@ -1,19 +1,23 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHomePage(),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: MyHomePage(),
+//     );
+//   }
+// }
 
-class MyHomePage extends StatelessWidget {
+class DetailsSendingScreen extends StatelessWidget {
+  const DetailsSendingScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +31,13 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
-              child: Icon(
-                Icons.send,
-                size: 64,
-                color: Colors.white,
+            Container(
+              child: Center(
+                child: Icon(
+                  Iconsax.send_2,
+                  size: 150,
+                  color: Color(0xFF18BE1E),
+                ),
               ),
             ),
             SizedBox(height: 20),
@@ -40,6 +46,8 @@ class MyHomePage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
+            SizedBox(height: 5),
+            Icon(Iconsax.arrow_swap,color: Colors.green,),
             SizedBox(height: 5),
             Text(
               '15,594.00 XOF',
@@ -98,7 +106,7 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Color(0xFF18BE1E),
                 padding: EdgeInsets.symmetric(vertical: 16),
               ),
               child: Text(

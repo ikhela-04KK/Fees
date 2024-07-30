@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:fees/constants/app_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +33,7 @@ class SendFundsScreen extends StatelessWidget {
         title: Text('Envoyer les fonds'),
         actions: [
           IconButton(
-            icon: Icon(Icons.qr_code_scanner),
+            icon: Icon(Iconsax.scan_barcode),
             onPressed: () {
               // Handle QR code scanner press
             },
@@ -47,7 +52,7 @@ class SendFundsScreen extends StatelessWidget {
             SizedBox(height: 10.0),
             Row(
               children: [
-                Icon(Icons.local_shipping, size: 40.0),
+                Icon(Icons.local_shipping, size: 40.0, color: Colors.white,),
                 SizedBox(width: 16.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,10 +100,11 @@ class SendFundsScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.blue,
-                    child: Text(
-                      'U',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    child: SvgPicture.asset(
+                    AppImages.usdc,
+                    // width: 300,
+                    height: 50,
+                  ),
                   ),
                   SizedBox(width: 16.0),
                   Expanded(
@@ -107,6 +113,7 @@ class SendFundsScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
+                        color: Colors.white
                       ),
                     ),
                   ),
@@ -115,6 +122,7 @@ class SendFundsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
+                      color: Colors.white
                     ),
                   ),
                 ],

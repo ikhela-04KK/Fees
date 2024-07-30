@@ -26,6 +26,7 @@ class AppImages {
   static const String faceTwo = 'assets/images/2.png';
   static const String faceThree = 'assets/images/3.png';
   static const String faceFour = 'assets/images/4.png';
+  static const String usdc = 'assets/images/usd-coin-usdc-logo.svg';
 }
 
 class AppAnims{
