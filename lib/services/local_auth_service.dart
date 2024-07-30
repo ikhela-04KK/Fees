@@ -21,7 +21,8 @@ class LocalAuth {
         // ],
         options: const AuthenticationOptions(
           useErrorDialogs: true, 
-          stickyAuth: true
+          stickyAuth: true,
+          biometricOnly: false
         )
       );
     }catch(e){

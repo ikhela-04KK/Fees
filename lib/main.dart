@@ -1,21 +1,27 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:fees/pages/deposit_option/screen.dart';
 import 'package:fees/pages/fingerprint/screen.dart';
 import 'package:fees/pages/home_page/home_page.dart';
 import 'package:fees/pages/seed_phrase/screen.dart';
 import 'package:fees/pages/wallet/screen/options.dart';
+
 // import 'package:fees/pages/swap_pay/swap_pay_const.dart';
 import 'package:fees/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:fees/pages/intro_screen/onboarding.dart';
 import 'package:fees/pages/sign_up/sign_up.dart';
 import 'package:fees/pages/mot_passe/new_user.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:fees/pages/otp_page/otp_screen.dart';
 
 
 void main() async {
   // charger tous les composants avant le lancement de l'application 
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -31,7 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fees',
       theme:darkMode,
-      home: HomePage(),   // OptionScreen(),OO
+      home: DepositScreen(),   // OptionScreen(),OO
       debugShowCheckedModeBanner: false,
       );
   }
