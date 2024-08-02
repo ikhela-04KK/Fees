@@ -62,7 +62,7 @@ android {
         versionName flutterVersionName
     }
 
-    // signer ton application avant ça distribution sur le store 
+    // Signer ton application avant ça distribution sur le store 
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
