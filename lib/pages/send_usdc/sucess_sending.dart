@@ -2,19 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: SuccessPage(),
-//     );
-//   }
-// }
-
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
 

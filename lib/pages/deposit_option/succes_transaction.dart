@@ -1,23 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
 
+import 'package:fees/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Transaction Réussie',
-//       theme: ThemeData.dark(),
-//       home: TransactionSuccessScreen(),
-//     );
-//   }
-// }
 
 class TransactionSuccessScreen extends StatelessWidget {
   @override
@@ -35,7 +21,7 @@ class TransactionSuccessScreen extends StatelessWidget {
               children: [
               Container(
                 width: 200,
-                height: 200,
+                height: 150,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.green, width: 4),
@@ -92,6 +78,10 @@ class TransactionSuccessScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Handle close button press
+                    Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green, // Background color

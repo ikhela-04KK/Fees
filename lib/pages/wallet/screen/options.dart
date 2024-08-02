@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:fees/pages/seed_phrase/screen.dart';
 
 class OptionScreen extends StatelessWidget {
   const OptionScreen({super.key});
@@ -38,7 +39,9 @@ class OptionScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 116),
                   TextButton(
-                    onPressed: (){}, 
+                    onPressed: (){
+                    
+                    }, 
                     style: TextButton.styleFrom(
                     foregroundColor: Color(0xFF9FE625),
                     textStyle: TextStyle(
@@ -52,7 +55,14 @@ class OptionScreen extends StatelessWidget {
                   SizedBox(height: 6),
                   ElevatedButton
                   (
-                  onPressed: (){}, 
+                  onPressed: (){
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context){
+                          return SeedPhrase();
+                        })
+                      );
+                  }, 
           
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF9FE625),
@@ -68,7 +78,7 @@ class OptionScreen extends StatelessWidget {
                     )
                   ),
                   child: Text(
-                    "Nouveau portefeuille",
+                    "Créer un portefeuille",
                   )
                   )
                 ],

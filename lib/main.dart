@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:fees/pages/deposit_option/screen.dart';
 import 'package:fees/pages/deposit_option/details_deposit.dart';
-import 'package:fees/pages/fingerprint/screen.dart';
+import 'package:fees/pages/securite/fingerprint/screen.dart';
 import 'package:fees/pages/home_page/home_page.dart';
 import 'package:fees/pages/seed_phrase/screen.dart';
 import 'package:fees/pages/send_usdc/send_token.dart';
@@ -11,11 +11,12 @@ import 'package:fees/pages/send_usdc/adress_item.dart';
 import 'package:fees/pages/send_usdc/details_sending.dart';
 import 'package:fees/themes/light_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:fees/pages/intro_screen/intro_page.dart';
 import 'package:fees/pages/intro_screen/onboarding.dart';
 import 'package:fees/pages/sign_up/sign_up.dart';
-import 'package:fees/pages/mot_passe/new_user.dart';
+import 'package:fees/pages/securite/new_user.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fees/pages/otp_page/otp_screen.dart';
+import 'package:fees/pages/securite/otp_page/otp_screen.dart';
 
 
 void main() async {
@@ -40,7 +41,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fees',
       theme:darkMode,
-      home:AuthentificationScreen(),   // OptionScreen(),OO
+      home:OptionScreen(),   // OptionScreen(),OO
       debugShowCheckedModeBanner: false,
       );
   }

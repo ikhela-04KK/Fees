@@ -1,6 +1,7 @@
 
 // ignore_for_file: prefer_const_constructors, library_private_types_in_public_api
 
+import 'package:fees/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:fees/services/local_auth_service.dart';
@@ -27,7 +28,7 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Authentification',
+              'Entrer un code de 4 chiffres',
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
             SizedBox(height: 20),
@@ -95,15 +96,8 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                         });
                       }
                     },
-                    child: Container(
-                      // decoration: BoxDecoration(
-                      //   color: Colors.black,
-                      //   shape: BoxShape.circle,
-                      //   border: Border.all(color: Color(0xFF6BEF1A), width: 2),
-                      // ),
-                      child: Center(
-                        child: Icon(Icons.backspace, color: Colors.white),
-                      ),
+                    child: Center(
+                      child: Icon(Icons.backspace, color: Colors.white),
                     ),
                   );
                 } else {
@@ -123,6 +117,12 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
         if (otp.length < 4) {
           setState(() {
             otp += number.toString();
+            if(otp.length == 4){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            };
             _selectedIndex = index;
           });
         }

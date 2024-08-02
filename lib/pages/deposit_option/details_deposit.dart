@@ -31,7 +31,7 @@ class DepositDetailsScreen extends StatelessWidget {
             // Handle back button press
           },
         ),
-        title: Text('Wave'),
+        title: Text('MTN'),
         centerTitle: true,
       ),
       body: Padding(
@@ -111,6 +111,7 @@ class DepositDetailsScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Handle continue button press
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => TransactionSuccessScreen()),

@@ -1,25 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:fees/constants/app_image.dart';
+import 'package:fees/pages/send_usdc/details_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark(),
-      home: SendFundsScreen(),
-    );
-  }
-}
 
 class SendFundsScreen extends StatelessWidget {
+  const SendFundsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,6 +131,10 @@ class SendFundsScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   // Handle continue button press
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailsSendingScreen()),
+                );
                 },
                 child: Text(
                   'Continuer',

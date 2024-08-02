@@ -1,19 +1,5 @@
+import 'package:fees/pages/deposit_option/details_deposit.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Faire un dépôt',
-      theme: ThemeData.dark(),
-      home: DepositScreen(),
-    );
-  }
-}
 
 class DepositScreen extends StatelessWidget {
   @override
@@ -27,27 +13,38 @@ class DepositScreen extends StatelessWidget {
           },
         ),
         title: Text(
-          'Faire un dépôt', 
+          'Faire un dépôt',
         ),
         centerTitle: true,
       ),
-      
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 50),
         child: ListView(
           children: [
             DepositOption(
-              iconPath: 'assets/images/wave.png', // Add the path to your Wave icon
+              iconPath:
+                  'assets/images/wave.png', // Add the path to your Wave icon
               name: 'Wave',
               fee: '1% - Frais Opérateur',
             ),
-            DepositOption(
-              iconPath: 'assets/images/mtn_momo.jpg', // Add the path to your MTN MoMo icon
-              name: 'MTN MoMo',
-              fee: '1% - Frais Opérateur',
+            GestureDetector(
+              onTap: () {
+                // Handle tap
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DepositDetailsScreen()),
+                );
+              },
+              child: DepositOption(
+                iconPath:
+                    'assets/images/mtn_momo.jpg', // Add the path to your MTN MoMo icon
+                name: 'MTN MoMo',
+                fee: '1% - Frais Opérateur',
+              ),
             ),
             DepositOption(
-              iconPath: 'assets/images/orange_money.png', // Add the path to your Orange Money icon
+              iconPath:
+                  'assets/images/orange_money.png', // Add the path to your Orange Money icon
               name: 'Orange Monney',
               fee: '1% - Frais Opérateur',
             ),

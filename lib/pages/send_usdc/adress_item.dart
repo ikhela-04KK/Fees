@@ -1,21 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:fees/pages/send_usdc/details_sending.dart';
+import 'package:fees/pages/send_usdc/send_token.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: ThemeData.dark(),
-//       home: HomeScreen(),
-//     );
-//   }
-// }
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -60,7 +48,12 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SendFundsScreen()
+                        ),
+                      );
                     },
                     child: AddressItem(title: 'Overstock', distance: '6.61m'),
                   ),

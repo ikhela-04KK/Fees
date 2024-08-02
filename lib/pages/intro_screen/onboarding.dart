@@ -7,6 +7,7 @@ import 'package:fees/pages/intro_screen/intro_three.dart';
 import 'package:fees/pages/intro_screen/intro_two.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:fees/pages/wallet/screen/options.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -73,7 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             Navigator.push(
                               context, 
                               MaterialPageRoute(builder: (context){
-                                return HomePage();
+                                return OptionScreen();
                               })
                             );
                           },

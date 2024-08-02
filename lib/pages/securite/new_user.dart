@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-
 class OdMotPass extends StatelessWidget {
   const OdMotPass({super.key});
 
@@ -10,14 +8,13 @@ class OdMotPass extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          foregroundColor: Colors.white,
+          foregroundColor: Color.fromARGB(255, 23, 21, 21),
           leading: Icon(Icons.arrow_back),
           centerTitle: true,
           title: Text(
-            "Password"
+            "Password", 
           ),
         ),
-      
         body: Center(
           child: Column(
             children: [

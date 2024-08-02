@@ -96,10 +96,8 @@ class _HomePageState extends State<HomePage> {
             // index: pageIndex,
             children: [
               Column(
-                
                 children: [
                   Expanded(
-                    
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 16),
                       decoration: BoxDecoration(
@@ -109,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           // payement / receive
-                          
                           SetupPay(),
                           // padding 001
                           Padding(
@@ -152,16 +149,14 @@ class _HomePageState extends State<HomePage> {
                                                 borderRadius:BorderRadius.circular(30),
                                               ),
                                               child: ClipRRect(
-                                                 borderRadius:
+                                              borderRadius:
                                                      BorderRadius.circular(30),
                                                  child: Image.asset(
                                                    _transactions[index]
-                                                       ["image"]!,
+                                                    ["image"]!,
                                                    fit: BoxFit.cover,
-
-
-                                                 ),
-                                               ),
+                                                ),
+                                              ),
                                             )
                                           ],
                                         );
@@ -251,7 +246,6 @@ class _HomePageState extends State<HomePage> {
               .shifting, // masque le label en état inactive et affiche label en état active
           selectedItemColor: primaryColor, // jcp
           unselectedItemColor: Colors.grey, //jcp
-
           // code for switch for another for page
           currentIndex: pageIndex,
           onTap: (idx) {

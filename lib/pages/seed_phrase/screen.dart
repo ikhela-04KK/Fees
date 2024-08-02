@@ -2,6 +2,7 @@
 
 import 'package:fees/pages/seed_phrase/button/copy_check_swap.dart';
 import 'package:flutter/material.dart';
+import 'package:fees/pages/sign_up/sign_up.dart';
 
 class SeedPhrase extends StatelessWidget {
   const SeedPhrase({super.key});
@@ -39,7 +40,7 @@ class SeedPhrase extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                "Enregister votre phrase sécrète , \n Il servira à récupérer votre wallet en cas de perte",
+                "Enregister votre phrase sécrète , \n Il servira à récupérer votre wallet\n en cas de perte de votre portefeuille",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Color.fromARGB(255, 160, 154, 154),
@@ -70,7 +71,14 @@ class SeedPhrase extends StatelessWidget {
               IconChangeButton(),
               ElevatedButton
                     (
-                    onPressed: (){}, 
+                    onPressed: (){
+                        Navigator.push(
+                              context, 
+                              MaterialPageRoute(builder: (context){
+                                return SignUp();
+                              })
+                          );
+                    }, 
             
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF9FE625),

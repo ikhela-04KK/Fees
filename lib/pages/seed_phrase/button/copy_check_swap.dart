@@ -18,7 +18,7 @@ class _IconChangeButtonState extends State<IconChangeButton> {
   void _toggleIcon() {
     if(!_isCopied){
       setState(() {
-      Random();
+      _isCopied = true;
     });
     }
     

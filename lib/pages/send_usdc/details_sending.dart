@@ -1,20 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:fees/pages/send_usdc/sucess_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: MyHomePage(),
-//     );
-//   }
-// }
 
 class DetailsSendingScreen extends StatelessWidget {
   const DetailsSendingScreen({super.key});
@@ -104,7 +92,12 @@ class DetailsSendingScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SuccessPage()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF18BE1E),
                 padding: EdgeInsets.symmetric(vertical: 16),

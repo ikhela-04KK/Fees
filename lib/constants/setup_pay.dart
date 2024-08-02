@@ -1,4 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:fees/pages/deposit_option/screen.dart';
+import 'package:fees/pages/send_usdc/adress_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -29,7 +32,6 @@ class SetupPay extends StatelessWidget {
                 ),
                 Icon(
                   Icons.keyboard_arrow_down,
-                  
                 )
               ],
             ),
@@ -47,17 +49,17 @@ class SetupPay extends StatelessWidget {
                     // color: Color.fromARGB(255, 0, 0, 0),
                   ),
                   child: SvgPicture.asset(
-                      "assets/images/usd-coin-usdc-logo.svg", 
-                      width: 24.0,
-                      height: 24.0,
-                    ),
+                    "assets/images/usd-coin-usdc-logo.svg",
+                    width: 24.0,
+                    height: 24.0,
+                  ),
 
                   // ),
                 ),
                 const SizedBox(
                   width: 8,
                 ),
-      
+
                 const Text(
                   "680 USDC",
                   style: TextStyle(
@@ -72,22 +74,25 @@ class SetupPay extends StatelessWidget {
                 //   "USDC",
                 //   style: TextStyle(fontSize: 20, color: Colors.white),
                 // ),
-                SizedBox(width: 8,),
-                SvgPicture.asset(
-                  "assets/images/arrow-swap-horizontal.svg", 
-                  width: 10,
-                  colorFilter: ColorFilter.mode(Color(0xffD0FF12), BlendMode.srcIn),
+                SizedBox(
+                  width: 8,
                 ),
-                SizedBox(width: 8,),
+                SvgPicture.asset(
+                  "assets/images/arrow-swap-horizontal.svg",
+                  width: 10,
+                  colorFilter:
+                      ColorFilter.mode(Color(0xffD0FF12), BlendMode.srcIn),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
                 const Text(
                   "409.540,27 XOF",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.white
-                  ),
+                      color: Colors.white),
                 ),
-
               ],
             ),
             Row(
@@ -120,9 +125,7 @@ class SetupPay extends StatelessWidget {
                 ),
                 const Text(
                   "DERNIERE 24H",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
+                  style: TextStyle(color: Colors.white),
                 ),
               ],
             ),
@@ -131,51 +134,70 @@ class SetupPay extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>HomeScreen()),
+                );
+                      },
                       child: Container(
-                    height: 42,
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/images/money-send.svg"),
-                        SizedBox(
-                          width: 8,
+                        height: 42,
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(),
                         ),
-                        Text(
-                          "Envoyer",
-                          style: TextStyle(color: Colors.white),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset("assets/images/money-send.svg"),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "Envoyer",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  )),
+                  ),
                   Expanded(
-                      child: Container(
-                    height: 42,
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/images/money-recive.svg"),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "Acheter",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  )),
+                    child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DepositScreen()),
+                          );
+                        },
+                        child: Container(
+                          height: 42,
+                          margin: const EdgeInsets.symmetric(horizontal: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  "assets/images/money-recive.svg"),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "Acheter",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ),
                 ],
               ),
             )
