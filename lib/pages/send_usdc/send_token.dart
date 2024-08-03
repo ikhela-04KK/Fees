@@ -4,11 +4,30 @@ import 'package:fees/constants/app_image.dart';
 import 'package:fees/pages/send_usdc/details_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+class SendFundsScreen extends StatefulWidget {
 
-class SendFundsScreen extends StatelessWidget {
-  const SendFundsScreen({super.key});
+  SendFundsScreen({super.key});
 
+  @override
+  State<SendFundsScreen> createState() => _SendFundsScreenState();
+}
+
+class _SendFundsScreenState extends State<SendFundsScreen> {
+  TextEditingController _sendTokenController = TextEditingController();
+
+  // void _convertCfaToUsdc(String value) {
+  // double token = double.tryParse(value) ?? 0;
+  //   setState(() {
+  //     _sendTokenController.text=token.toString();
+  // });
+  // }
+  @override
+  void dispose() {
+    _sendTokenController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +51,7 @@ class SendFundsScreen extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  Icons.local_shipping,
+                  Iconsax.wallet,
                   size: 40.0,
                   color: Colors.white,
                 ),
@@ -45,6 +64,7 @@ class SendFundsScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
+                        color: Colors.white
                       ),
                     ),
                     Text(
@@ -76,8 +96,9 @@ class SendFundsScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
               decoration: BoxDecoration(
-                color: Colors.grey[800],
+                color: Color.fromARGB(255, 8, 8, 8),
                 borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(color: Color.fromARGB(255, 255, 255, 255))
               ),
               child: Row(
                 children: [
@@ -106,6 +127,7 @@ class SendFundsScreen extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                       cursorColor: Colors.white,
                       keyboardType: TextInputType.number,
+                      controller: _sendTokenController,
                       decoration: InputDecoration(
                         hintText: '0.00',
                         hintStyle: TextStyle(color: Colors.white54),
@@ -116,6 +138,7 @@ class SendFundsScreen extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.white),
                         ),
                       ),
+                      // onChanged: _convertCfaToUsdc,
                     ),
                   )
                 ],
@@ -133,11 +156,12 @@ class SendFundsScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Handle continue button press
+                  double token = double.tryParse(_sendTokenController.text) ?? 0.0;
+                  double usdcConvert = token*600; 
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => DetailsSendingScreen()),
+                        builder: (context) => DetailsSendingScreen(token:token,usdcConvert: usdcConvert, )),
                   );
                 },
                 child: Text(

@@ -21,13 +21,11 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
 
   void _convertCfaToUsdc(String value) {
     double cfaAmount = double.tryParse(value) ?? 0;
-    
-
       setState(() {
       _operatorFee = cfaAmount * 0.01;
       _amountToReceive = cfaAmount - _operatorFee;
       double usdcAmount = _amountToReceive / conversionRate;
-    _usdcController.text = usdcAmount.toStringAsFixed(2);
+      _usdcController.text = usdcAmount.toStringAsFixed(2);
       _usdcController.text = usdcAmount.toStringAsFixed(2);
     });
   }
@@ -38,15 +36,15 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
     _usdcController.dispose();
     super.dispose();
   }
-   void _handleDeposit() {
-    double amount = double.tryParse(_usdcController.text) ?? 0.0;
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => TransactionSuccessScreen(amount: amount),
-      ),
-    );
-  }
+  //  void _handleDeposit() {
+  //   double amount = double.tryParse(_usdcController.text) ?? 0.0;
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => TransactionSuccessScreen(amount: amount),
+  //     ),
+  //   );
+  // }
   
   @override
   Widget build(BuildContext context) {

@@ -1,24 +1,33 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:fees/pages/send_usdc/sucess_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class DetailsSendingScreen extends StatelessWidget {
-  const DetailsSendingScreen({super.key});
+  final double token;
+  final double usdcConvert;
+  const DetailsSendingScreen({super.key, required this.token, required this.usdcConvert});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Résumé'),
+        foregroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          'Résumé',
+          style: TextStyle(
+            color: Colors.white
+          ),
+        
+        ),
       ),
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+          children:<Widget>[
             Container(
               child: Center(
                 child: Icon(
@@ -28,17 +37,17 @@ class DetailsSendingScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height:20),
             Text(
-              '25,99 UDSC',
+              '${token.toStringAsFixed(2)} USDC',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
             SizedBox(height: 5),
-            Icon(Iconsax.arrow_swap,color: Color(0xFF9FE625),),
+            Icon(Iconsax.arrow_swap,color: Color(0xFF9FE625)),
             SizedBox(height: 5),
             Text(
-              '15,594.00 XOF',
+              '${usdcConvert.toStringAsFixed(2)} F CFA',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),

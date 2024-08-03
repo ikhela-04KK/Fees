@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fees',
       theme:darkMode,
-      home:OptionScreen(),     //OptionScreen
+      home:IntroPage(),     //OptionScreen
       debugShowCheckedModeBanner: false,
       );
   }

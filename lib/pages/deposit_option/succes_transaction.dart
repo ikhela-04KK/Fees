@@ -7,7 +7,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TransactionSuccessScreen extends StatelessWidget {
   final double amount;
-   TransactionSuccessScreen({super.key, required this.amount});
+  TransactionSuccessScreen({super.key, required this.amount});
 
   @override
 
