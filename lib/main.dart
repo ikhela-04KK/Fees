@@ -17,6 +17,7 @@ import 'package:fees/pages/sign_up/sign_up.dart';
 import 'package:fees/pages/securite/new_user.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fees/pages/securite/otp_page/otp_screen.dart';
+// import 'package:fees/pages/home_page/new_home.dart';
 
 
 void main() async {
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Fees',
       theme:darkMode,
-      home:OptionScreen(),   // OptionScreen(),OO
+      home:OptionScreen(),     //OptionScreen
       debugShowCheckedModeBanner: false,
       );
   }

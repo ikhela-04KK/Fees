@@ -25,7 +25,7 @@ class IntroThree extends StatelessWidget {
             "La magie de Solana", 
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Color(0xFF6BEF1A), 
+              color: Color(0xFF9FE625), 
               fontWeight: FontWeight.w500, 
               fontFamily: "jbm", 
               fontSize: 30

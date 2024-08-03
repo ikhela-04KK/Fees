@@ -1,11 +1,28 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:math';
+
 import 'package:fees/pages/seed_phrase/button/copy_check_swap.dart';
 import 'package:flutter/material.dart';
 import 'package:fees/pages/sign_up/sign_up.dart';
 
+// A sample list of French words (usually, you'd have a much larger list)
+const List<String> frenchWords = [
+  'hec', 'abidjan', 'exellente', 'soutenance', 'fenêtre', 'soleil', 'ordinateur', 'voiture', 'école', 'livre', 'porte', 'montagne'
+];
+
 class SeedPhrase extends StatelessWidget {
-  const SeedPhrase({super.key});
+  SeedPhrase({super.key});
+  final List<String> seedPhrase = generateSeedPhrase();
+
+  static List<String> generateSeedPhrase() {
+    final random = Random();
+    List<String> words = [];
+    for (int i = 0; i < 12; i++) {
+      words.add(frenchWords[random.nextInt(frenchWords.length)]);
+    }
+    return words;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +74,7 @@ class SeedPhrase extends StatelessWidget {
                 height: 420,
                 child: GridView.builder(
                   itemCount: 12,
-                  itemBuilder: (context , index) => ItemTile(index),
+                  itemBuilder: (context , index) => ItemTile(index, seedPhrase[index]),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, 
                     crossAxisSpacing: 10.0,
@@ -109,8 +126,9 @@ class SeedPhrase extends StatelessWidget {
 //  for seed Phrase
 class ItemTile extends StatelessWidget {
   final int itemNo;
+  final String word;
 
-  const ItemTile(this.itemNo, {super.key});
+  const ItemTile(this.itemNo,this.word,  {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +157,7 @@ class ItemTile extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 8.0),
             ),
             Text(
-              'Product ${itemNo+1}',
+              word,
               key: Key('text_$itemNo'),
               style: TextStyle(
                 color: Colors.white,

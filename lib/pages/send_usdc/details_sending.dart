@@ -24,7 +24,7 @@ class DetailsSendingScreen extends StatelessWidget {
                 child: Icon(
                   Iconsax.send_2,
                   size: 150,
-                  color: Color(0xFF18BE1E),
+                  color: Color(0xFF9FE625),
                 ),
               ),
             ),
@@ -35,7 +35,7 @@ class DetailsSendingScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
             SizedBox(height: 5),
-            Icon(Iconsax.arrow_swap,color: Colors.green,),
+            Icon(Iconsax.arrow_swap,color: Color(0xFF9FE625),),
             SizedBox(height: 5),
             Text(
               '15,594.00 XOF',
@@ -58,7 +58,7 @@ class DetailsSendingScreen extends StatelessWidget {
                   ),
                   Text(
                     'Overstock (0xabc...245)',
-                    style: TextStyle(color: Colors.green, fontSize: 16),
+                    style: TextStyle(color: Color(0xFF9FE625), fontSize: 16),
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -99,7 +99,7 @@ class DetailsSendingScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF18BE1E),
+                backgroundColor: Color(0xFF9FE625),
                 padding: EdgeInsets.symmetric(vertical: 16),
               ),
               child: Text(

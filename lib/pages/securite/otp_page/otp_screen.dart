@@ -41,11 +41,11 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                     width: 50,
                     height: 50,
                     // decoration: BoxDecoration(
-                    //   color: otp.length > index ? Color(0xFF6BEF1A) : Colors.white,
+                    //   color: otp.length > index ? Color(0xFF9FE625) : Colors.white,
                     //   shape: BoxShape.circle,
                     // ),
                     child: Center(
-                      child:Icon(Iconsax.happyemoji, color:otp.length > index ? Color(0xFF6BEF1A) : Colors.white) ,
+                      child:Icon(Iconsax.happyemoji, color:otp.length > index ? Color(0xFF9FE625) : Colors.white) ,
                     ),
                   ),
                 );
@@ -76,10 +76,10 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                       // decoration: BoxDecoration(
                       //   color: Colors.black,
                       //   shape: BoxShape.circle,
-                      //   border: Border.all(color: Color(0xFF6BEF1A), width: 1),
+                      //   border: Border.all(color: Color(0xFF9FE625), width: 1),
                       // ),
                       child: Center(
-                        child: Icon(Iconsax.finger_scan, color: Color(0xFF6BEF1A)),
+                        child: Icon(Iconsax.finger_scan, color: Color(0xFF9FE625)),
                       ),
                     ),
                   );
@@ -129,7 +129,7 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: _selectedIndex == index ? Color(0xFF6BEF1A) : Colors.white,
+          color: _selectedIndex == index ? Color(0xFF9FE625) : Colors.white,
           shape: BoxShape.circle,
         ),
         child: Center(

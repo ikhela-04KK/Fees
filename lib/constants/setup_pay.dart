@@ -81,7 +81,7 @@ class SetupPay extends StatelessWidget {
                   "assets/images/arrow-swap-horizontal.svg",
                   width: 10,
                   colorFilter:
-                      ColorFilter.mode(Color(0xffD0FF12), BlendMode.srcIn),
+                      ColorFilter.mode(Color(0xFF9FE625), BlendMode.srcIn),
                 ),
                 SizedBox(
                   width: 8,
@@ -109,12 +109,12 @@ class SetupPay extends StatelessWidget {
                     children: const [
                       Icon(
                         Icons.arrow_drop_up,
-                        color: Colors.green,
+                        color: Color(0xFF9FE625),
                       ),
                       Text(
                         "2.28%",
                         style: TextStyle(
-                          color: Colors.green,
+                          color: Color(0xFF9FE625),
                         ),
                       )
                     ],

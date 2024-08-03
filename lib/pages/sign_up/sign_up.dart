@@ -34,22 +34,6 @@ class SignUp extends StatelessWidget {
                         TextFormField(
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                              label: Text("Nom & Prenom"),
-                              prefixIcon: Icon(
-                                Icons.person_2_outlined,
-                                color: Color(0xFF9FE625),
-                              ),
-                              border: OutlineInputBorder(),
-                              labelStyle: TextStyle(color: Colors.white),
-                              iconColor: Color(0xFF9FE625),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 2.0, color: Color(0xFF28536B)))),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          style: TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
                               label: Text("Nom d'Utilisateur"),
                               prefixIcon: Icon(
                                 Icons.person_2_outlined,
@@ -85,38 +69,6 @@ class SignUp extends StatelessWidget {
                               label: Text("Numero Téléphone"),
                               prefixIcon: Icon(
                                 Icons.numbers,
-                                color: Color(0xFF9FE625),
-                              ),
-                              border: OutlineInputBorder(),
-                              labelStyle: TextStyle(color: Colors.white),
-                              iconColor: Color(0xFF9FE625),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 2.0, color: Color(0xFF28536B)))),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          style: TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                              label: Text("Mot De Passe"),
-                              prefixIcon: Icon(
-                                Icons.security_outlined,
-                                color: Color(0xFF9FE625),
-                              ),
-                              border: OutlineInputBorder(),
-                              labelStyle: TextStyle(color: Colors.white),
-                              iconColor: Color(0xFF9FE625),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 2.0, color: Color(0xFF28536B)))),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          style: TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                              label: Text("Confirmer Mot De Passe"),
-                              prefixIcon: Icon(
-                                Icons.lock_clock_outlined,
                                 color: Color(0xFF9FE625),
                               ),
                               border: OutlineInputBorder(),

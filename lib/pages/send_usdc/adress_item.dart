@@ -10,15 +10,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sélectionnez le destinataire'),
-        actions: [
-          IconButton(
-            icon: Icon(Iconsax.scan_barcode),
-            onPressed: () {
-              // Add your onPressed code here!
-            },
+        backgroundColor: Color.fromARGB(255, 9, 9, 9),
+        foregroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          'Sélectionnez le destinataire', 
+          style: TextStyle(
+            color: Colors.white
           ),
-        ],
+          
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,6 +35,13 @@ class HomeScreen extends StatelessWidget {
                   Iconsax.search_normal_1_copy,
                   color: Colors.white,
                 ),
+                  suffixIcon: IconButton(
+                  icon: Icon(Iconsax.scan_barcode),
+                  color: Color(0xFF9FE625),
+                  onPressed: () {
+                    // Add your scanner icon action here
+      },
+    ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),
                   borderSide: BorderSide.none,

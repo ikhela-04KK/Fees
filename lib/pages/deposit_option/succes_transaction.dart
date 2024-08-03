@@ -6,9 +6,14 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 
 class TransactionSuccessScreen extends StatelessWidget {
+  final double amount;
+   TransactionSuccessScreen({super.key, required this.amount});
+
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Center(
         child: Container(
           width: 400,
@@ -24,12 +29,12 @@ class TransactionSuccessScreen extends StatelessWidget {
                 height: 150,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.green, width: 4),
+                  border: Border.all(color: Color(0xFF9FE625), width: 4),
                 ),
                 child: Icon(
                   Iconsax.send_2,
                   size: 100,
-                  color: Colors.green,
+                  color: Color(0xFF9FE625),
                 ),
               ),
                 SizedBox(height: 25),
@@ -68,7 +73,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '+ 100 USDC',
+                        '+ ${amount.toStringAsFixed(2)} USDC',
                         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -84,7 +89,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                 );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green, // Background color
+                    backgroundColor: Color(0xFF9FE625), // Background color
                     minimumSize: Size(double.infinity, 50), // Full width button
                   ),
                   child: Text(

@@ -4,33 +4,56 @@ import 'package:fees/pages/deposit_option/succes_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-void main() {
-  runApp(MyApp());
+
+
+class DepositDetailsScreen extends StatefulWidget {
+  @override
+  State<DepositDetailsScreen> createState() => _DepositDetailsScreenState();
 }
 
-class MyApp extends StatelessWidget {
+class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
+  TextEditingController _cfaController = TextEditingController();
+  TextEditingController _usdcController = TextEditingController();
+
+  static const double conversionRate = 600.0;
+  double _operatorFee = 0.0;
+  double _amountToReceive = 0.0;
+
+  void _convertCfaToUsdc(String value) {
+    double cfaAmount = double.tryParse(value) ?? 0;
+    
+
+      setState(() {
+      _operatorFee = cfaAmount * 0.01;
+      _amountToReceive = cfaAmount - _operatorFee;
+      double usdcAmount = _amountToReceive / conversionRate;
+    _usdcController.text = usdcAmount.toStringAsFixed(2);
+      _usdcController.text = usdcAmount.toStringAsFixed(2);
+    });
+  }
+
   @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      title: 'Faire un dépôt',
-      theme: ThemeData.dark(),
-      home: DepositDetailsScreen(),
+  void dispose() {
+    _cfaController.dispose();
+    _usdcController.dispose();
+    super.dispose();
+  }
+   void _handleDeposit() {
+    double amount = double.tryParse(_usdcController.text) ?? 0.0;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TransactionSuccessScreen(amount: amount),
+      ),
     );
   }
-}
-
-
-class DepositDetailsScreen extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Handle back button press
-          },
-        ),
+        backgroundColor: Color.fromARGB(255, 9, 9, 9),
+        foregroundColor: Colors.white,
         title: Text('MTN'),
         centerTitle: true,
       ),
@@ -58,27 +81,51 @@ class DepositDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 32),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '100.000 F CFA',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 120,
+              child: TextField(
+                controller: _cfaController,
+                keyboardType: TextInputType.number,
+                cursorColor: Colors.white,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'F CFA',
+                  hintStyle: TextStyle(color: Colors.white54),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white54),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
-                SizedBox(width: 16),
-                Icon(Iconsax.arrow_swap_horizontal, color: Colors.green),
-                SizedBox(width: 16),
-                Text(
-                  '165,71 USDC',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ],
+                onChanged: _convertCfaToUsdc,
+              ),
             ),
+            SizedBox(width: 16),
+            Icon(Iconsax.arrow_swap_horizontal, color: Color(0xFF9FE625)),
+            SizedBox(width: 16),
+            Container(
+              width: 120,
+              child: TextField(
+                controller: _usdcController,
+                readOnly: true,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'USDC',
+                  hintStyle: TextStyle(color: Colors.white54),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white54),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
             SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +135,7 @@ class DepositDetailsScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 Text(
-                  '10 F CFA',
+                  '${_operatorFee.toStringAsFixed(2)} F CFA',
                   style: TextStyle(color: Colors.white),
                 ),
               ],
@@ -99,11 +146,11 @@ class DepositDetailsScreen extends StatelessWidget {
               children: [
                 Text(
                   'Montant à recevoir',
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: Color(0xFF9FE625)),
                 ),
                 Text(
-                  '100.000 F CFA',
-                  style: TextStyle(color: Colors.green),
+                  '${_amountToReceive.toStringAsFixed(2)} F CFA',
+                  style: TextStyle(color: Color(0xFF9FE625)),
                 ),
               ],
             ),
@@ -111,14 +158,14 @@ class DepositDetailsScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Handle continue button press
-                
+                double amount = double.tryParse(_usdcController.text) ?? 0.0;
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TransactionSuccessScreen()),
+                  MaterialPageRoute(builder: (context) => TransactionSuccessScreen(amount: amount)),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green, // Background color
+                backgroundColor: Color(0xFF9FE625), // Background color
                 minimumSize: Size(double.infinity, 50), // Full width button
               ),
               child: Text(

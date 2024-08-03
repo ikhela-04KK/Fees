@@ -4,7 +4,6 @@ import 'package:fees/constants/app_image.dart';
 import 'package:fees/pages/send_usdc/details_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 
 class SendFundsScreen extends StatelessWidget {
@@ -14,21 +13,11 @@ class SendFundsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Handle back button press
-          },
+        backgroundColor: Color.fromARGB(255, 9, 9, 9),
+        foregroundColor: Colors.white,
+        title: Text(
+          'Envoyer les fonds', 
         ),
-        title: Text('Envoyer les fonds'),
-        actions: [
-          IconButton(
-            icon: Icon(Iconsax.scan_barcode),
-            onPressed: () {
-              // Handle QR code scanner press
-            },
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -42,7 +31,11 @@ class SendFundsScreen extends StatelessWidget {
             SizedBox(height: 10.0),
             Row(
               children: [
-                Icon(Icons.local_shipping, size: 40.0, color: Colors.white,),
+                Icon(
+                  Icons.local_shipping,
+                  size: 40.0,
+                  color: Colors.white,
+                ),
                 SizedBox(width: 16.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,30 +84,40 @@ class SendFundsScreen extends StatelessWidget {
                   CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: SvgPicture.asset(
-                    AppImages.usdc,
-                    // width: 300,
-                    height: 50,
-                  ),
+                      AppImages.usdc,
+                      // width: 300,
+                      height: 50,
+                    ),
                   ),
                   SizedBox(width: 16.0),
                   Expanded(
                     child: Text(
                       'USDC',
                       style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(width: 16.0),
+                  Container(
+                    width: 80, // Adjust width as needed
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      cursorColor: Colors.white,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: '0.00',
+                        hintStyle: TextStyle(color: Colors.white54),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white54),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    '25.99',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -123,7 +126,7 @@ class SendFundsScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: Color(0xFF9FE625),
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -132,9 +135,10 @@ class SendFundsScreen extends StatelessWidget {
                 onPressed: () {
                   // Handle continue button press
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetailsSendingScreen()),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DetailsSendingScreen()),
+                  );
                 },
                 child: Text(
                   'Continuer',
