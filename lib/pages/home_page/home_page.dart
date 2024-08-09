@@ -214,7 +214,7 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               pageIndex = idx;
             });
-            if (idx == 2){
+            if (idx == 1){
               Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => ScannerCode()), // Remplacez `QRCodePage` par votre page de QR code
