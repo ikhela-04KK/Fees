@@ -7,7 +7,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class TransactionSuccessScreen extends StatelessWidget {
   final double amount;
-  TransactionSuccessScreen({super.key, required this.amount});
+  const TransactionSuccessScreen({super.key, required this.amount});
 
   @override
 
@@ -85,7 +85,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                     // Handle close button press
                     Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => HomePage(usdcAmount: amount,cfaAmount: amount /600,)),
                 );
                   },
                   style: ElevatedButton.styleFrom(

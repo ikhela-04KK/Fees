@@ -99,20 +99,21 @@ class SuccessPage extends StatelessWidget {
 
 // //- l'animation du début ne se lance pas
 ////- changer product en des phrases de recuperation
-// - pour la section de l'inscription regarder les autres processus d'inscription et mettre le logo de Fees 
 // // - arranger confirmer mot de passe de tel sorte à ce qu'il soit sur une seul ligne 
-// - lorsqu'on clique sur s'incrire il doit y avoir un loading 
+// pour la section de l'inscription regarder les autres processus d'inscription et mettre le logo de Fees 
+// lorsqu'on clique sur s'incrire il doit y avoir un loading 
 // lorsqu'on qu'il sur envoyer un loading pour rendre à ça plus réaliste 
-// - Mettre aussi les contacts à zero , genre en mode zéro contact 
+// un screen de transaction pour dire que le wallet sera créer dans 5 seconde , un loading et passer à la création du wallet 
+// ?- Mettre aussi les contacts à zero , genre en mode zéro contact 
 // //- pour la partie scan faire de telle sorte que l'on puisse entrer un code de 4 chiffres ou s'authentifier et lorsqu'on clique fini de rentrer le code à 4 chiffres 
-// - un screen de transaction pour dire que le wallet sera créer dans 5 seconde , un loading et passer à la création du wallet 
-// - Mettre 0Fr comme compte principal 
+// // - Mettre 0Fr comme compte principal 
 // //- et lorsque je clique sur Acheter et faire un dépôt , je puisse choisir MTN car maintenant ça ne passe oas 
 // //- selection destinataire mettre le fond blanc en noire 
 // //mettre le scanner dans la barre de rechercher 
 // //le boutton retour doit marcher 
-// changer l'icone de overstock dans Envoyer et faire les modifications du appBar en noir faire marcher le boutton de retour 
+// changer l'icone de overstock dans Envoyer 
 // changer l'îcone de Overstock et NewEgg en leur logo respective 
+// //faire les modifications du appBar en noir faire marcher le boutton de retour 
 // //faire fonctionner la barre entrer les prix 
 // //le boutton Fermer doit pouvoir fonctionner et retourner à la page accueil
 //  //adapter la couleur en fonction de la couleur verte du layout sucesssTransaction 

@@ -1,14 +1,27 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:fees/components/animation/loading_provider.dart';
 import 'package:fees/pages/send_usdc/sucess_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class DetailsSendingScreen extends StatelessWidget {
+class DetailsSendingScreen extends StatefulWidget {
   final double token;
   final double usdcConvert;
   const DetailsSendingScreen({super.key, required this.token, required this.usdcConvert});
+
+  @override
+  State<DetailsSendingScreen> createState() => _DetailsSendingScreenState();
+}
+
+class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
   @override
   Widget build(BuildContext context) {
+
+    // ligne de code pour accepter les providers 
+     final loadingProvider = Provider.of<LoadingProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -23,7 +36,19 @@ class DetailsSendingScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.black,
-      body: Padding(
+      body:loadingProvider.isLoading
+      ? Center(
+              child: SpinKitFadingCircle(
+                itemBuilder: (BuildContext context, int index) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: index.isEven ? Colors.red : Colors.green,
+                    ),
+                  );
+                },
+              ), // Utilisation de l'animation SpinKitFadingCircle
+            )
+      : Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -39,7 +64,7 @@ class DetailsSendingScreen extends StatelessWidget {
             ),
             SizedBox(height:20),
             Text(
-              '${token.toStringAsFixed(2)} USDC',
+              '${widget.token.toStringAsFixed(2)} USDC',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
@@ -47,7 +72,7 @@ class DetailsSendingScreen extends StatelessWidget {
             Icon(Iconsax.arrow_swap,color: Color(0xFF9FE625)),
             SizedBox(height: 5),
             Text(
-              '${usdcConvert.toStringAsFixed(2)} F CFA',
+              '${widget.usdcConvert.toStringAsFixed(2)} F CFA',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
@@ -101,11 +126,14 @@ class DetailsSendingScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SuccessPage()),
-                );
+              onPressed: () async {
+                loadingProvider.startLoading();
+                await _loadHomePageData();
+                loadingProvider.stopLoading();
+                if (mounted) {
+                  _navigateToSuccessPage(); 
+                  loadingProvider.stopLoading();
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625),
@@ -121,4 +149,16 @@ class DetailsSendingScreen extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _loadHomePageData() async {
+    // Simuler le chargement des données pour la page d'accueil
+    await Future.delayed(Duration(seconds: 3));
+  }
+  void _navigateToSuccessPage() {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SuccessPage()),
+  );
+}
+
 }

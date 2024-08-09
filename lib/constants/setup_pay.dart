@@ -1,13 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:fees/pages/deposit_option/screen.dart';
 import 'package:fees/pages/send_usdc/adress_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SetupPay extends StatelessWidget {
-  const SetupPay({super.key});
-
+  
+  SetupPay({super.key, cfaAmount,usdcAmount});
+  double? cfaAmount;
+  double? usdcAmount;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,8 +61,8 @@ class SetupPay extends StatelessWidget {
                   width: 8,
                 ),
 
-                const Text(
-                  "680 USDC",
+                Text(
+                  '${usdcAmount?.toStringAsFixed(2)} USDC',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -86,8 +87,8 @@ class SetupPay extends StatelessWidget {
                 SizedBox(
                   width: 8,
                 ),
-                const Text(
-                  "409.540,27 XOF",
+                Text(
+                  '${cfaAmount?.toStringAsFixed(2)} XOF',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,

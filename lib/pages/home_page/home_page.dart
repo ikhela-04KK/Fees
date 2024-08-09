@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  double? cfaAmount; 
+  double? usdcAmount;
+  HomePage({super.key, this.cfaAmount, this.usdcAmount});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,6 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
+  double? usdcAmount;
+  double? cfaAmount;
 
   final List<Map<String, String>> _transactions = [
     {'name': 'ATM', 'image': AppImages.faceAvatar},
@@ -107,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           // payement / receive
-                          SetupPay(),
+                          SetupPay(cfaAmount:cfaAmount,usdcAmount:usdcAmount),
                           // padding 001
                           Padding(
                             padding: const EdgeInsets.all(12.0),
