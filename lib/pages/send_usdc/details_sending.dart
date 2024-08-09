@@ -129,10 +129,9 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
               onPressed: () async {
                 loadingProvider.startLoading();
                 await _loadHomePageData();
-                loadingProvider.stopLoading();
-                if (mounted) {
-                  _navigateToSuccessPage(); 
+                if (mounted){
                   loadingProvider.stopLoading();
+                  _navigateToSuccessPage(); 
                 }
               },
               style: ElevatedButton.styleFrom(

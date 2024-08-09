@@ -3,6 +3,10 @@
 import 'package:fees/pages/deposit_option/succes_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
+import 'package:fees/components/animation/loading_provider.dart';
+
 
 
 
@@ -48,6 +52,7 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
   
   @override
   Widget build(BuildContext context) {
+       final loadingProvider = Provider.of<LoadingProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 9, 9, 9),
@@ -55,7 +60,20 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
         title: Text('MTN'),
         centerTitle: true,
       ),
-      body: Padding(
+      body: loadingProvider.isLoading
+      ?  Center(
+              child: SpinKitFadingCircle(
+                itemBuilder: (BuildContext context, int index) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: index.isEven ? Colors.red : Colors.green,
+                    ),
+                  );
+                },
+              ), // Utilisation de l'animation SpinKitFadingCircle
+            )
+            :
+      Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -154,13 +172,14 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
             ),
             Spacer(),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 // Handle continue button press
-                double amount = double.tryParse(_usdcController.text) ?? 0.0;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TransactionSuccessScreen(amount: amount)),
-                );
+                loadingProvider.startLoading();
+                await _loadHomePageData();
+                if (mounted){
+                  loadingProvider.stopLoading();
+                  _navigateToSuccessPage(); 
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625), // Background color
@@ -175,5 +194,17 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
         ),
       ),
     );
+    
+  }
+   Future<void> _loadHomePageData() async {
+    // Simuler le chargement des données pour la page d'accueil
+    await Future.delayed(Duration(seconds: 3));
+  }
+  void _navigateToSuccessPage() {
+    double amount = double.tryParse(_usdcController.text) ?? 0.0;
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => TransactionSuccessScreen(amount: amount)),
+  );
   }
 }

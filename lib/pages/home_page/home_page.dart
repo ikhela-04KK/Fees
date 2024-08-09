@@ -3,9 +3,11 @@ import 'package:fees/constants/app_image.dart';
 import 'package:fees/constants/colors.dart';
 import 'package:fees/constants/historyPaiement.dart';
 import 'package:fees/constants/iconContainer.dart';
+import 'package:fees/constants/scanner_code.dart';
 import 'package:fees/constants/setup_pay.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class HomePage extends StatefulWidget {
   double? cfaAmount; 
@@ -111,62 +113,18 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           // payement / receive
-                          SetupPay(cfaAmount:cfaAmount,usdcAmount:usdcAmount),
+                          GestureDetector(
+                            onTap: (){
+                              _showQRCode(context);
+                            },
+                            child: SetupPay(cfaAmount:cfaAmount,usdcAmount:usdcAmount),
+                          ), 
                           // padding 001
                           Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Column(
                               children: [
-                                /*
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "Magasin",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "jbm",
-                                    ),
-                                  ),
-                                ),
-                                */
-                                /*
-                                Container(
-                                  height: 70,
-                                  width: double.infinity,
-                                  child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: _transactions.length,
-                                      itemBuilder: (context, index) {
-                                        return Stack(
-                                          children: [
-                                            Container(
-                                              alignment: Alignment.bottomCenter,
-                                              margin: const EdgeInsets.all(10),
-                                              padding:EdgeInsets.only(bottom: 12),
-                                              height: 50,
-                                              width: 50,
-
-                                              decoration: BoxDecoration(
-                                                color: primarColor,
-                                                borderRadius:BorderRadius.circular(30),
-                                              ),
-                                              child: ClipRRect(
-                                              borderRadius:
-                                                     BorderRadius.circular(30),
-                                                 child: Image.asset(
-                                                   _transactions[index]
-                                                    ["image"]!,
-                                                   fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        );
-                                      }),
-                                ),
-                                */
+                                  
                               ],
                             ),
                           ),
@@ -256,11 +214,50 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               pageIndex = idx;
             });
+            if (idx == 2){
+              Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ScannerCode()), // Remplacez `QRCodePage` par votre page de QR code
+      );
+            }
+
           },
+        
+
+          
           items: _navBarItems.map((item) {
             return BottomNavigationBarItem(
                 icon: Icon(item['icon']), label: item['label']);
           }).toList(),
-        ));
+        )
+        );
+  }
+  void _showQRCode(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Color.fromARGB(255, 14, 13, 13),   
+        shadowColor:Colors.transparent,
+        surfaceTintColor: Color(0xFF9FE625),
+        content: Padding(
+          padding: EdgeInsets.all(20),
+          child: QrImageView(
+          data: 'wallet(0xndhfhdf...kjueu)',  // Data to be encoded
+          version: QrVersions.auto,
+          dataModuleStyle: QrDataModuleStyle(
+            color: Color(0xFF9FE625), 
+            dataModuleShape: QrDataModuleShape.circle
+          ),
+          size: 200.0,
+          eyeStyle: QrEyeStyle(
+            color: Color(0xFF9FE625),
+            eyeShape: QrEyeShape.circle
+          ),
+          // backgroundColor: Color(0xFF9FE625),
+          semanticsLabel: "This is a public key or wallet"
+        ),
+        )
+      ),
+    );
   }
 }
