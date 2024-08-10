@@ -4,15 +4,18 @@ import 'package:fees/constants/colors.dart';
 import 'package:fees/constants/historyPaiement.dart';
 import 'package:fees/constants/iconContainer.dart';
 import 'package:fees/constants/scanner_code.dart';
-import 'package:fees/constants/setup_pay.dart';
+// import 'package:fees/constants/setup_pay.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fees/pages/deposit_option/screen.dart';
+import 'package:fees/pages/send_usdc/adress_item.dart';
+import 'package:fees/pages/wallet/wallet_provider.dart'; 
 
 class HomePage extends StatefulWidget {
-  double? cfaAmount; 
-  double? usdcAmount;
-  HomePage({super.key, this.cfaAmount, this.usdcAmount});
+  HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -20,16 +23,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
-  double? usdcAmount;
-  double? cfaAmount;
-
-  final List<Map<String, String>> _transactions = [
-    {'name': 'ATM', 'image': AppImages.faceAvatar},
-    {'name': 'Netflix', 'image': AppImages.faceAvatar},
-    {'name': 'Apple Store', 'image': AppImages.faceAvatar},
-    {'name': 'Netflix', 'image': AppImages.faceAvatar},
-    {'name': 'Apple Store', 'image': AppImages.faceAvatar},
-  ];
 
   // items for bottom navigation
   final List<Map<String, dynamic>> _navBarItems = [
@@ -72,6 +65,8 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    double usdcAmount = Provider.of<WalletProvider>(context).usdcBalance;
+    double cfaAmount = Provider.of<WalletProvider>(context).xofBalance;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -96,9 +91,7 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.black,
         body: SafeArea(
-          
           child: IndexedStack(
-            
             // index: pageIndex,
             children: [
               Column(
@@ -114,18 +107,244 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           // payement / receive
                           GestureDetector(
-                            onTap: (){
-                              _showQRCode(context);
-                            },
-                            child: SetupPay(cfaAmount:cfaAmount,usdcAmount:usdcAmount),
-                          ), 
+                              onTap: () {
+                                _showQRCode(context);
+                              },
+
+                              //---
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  height: 250,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 31, 30, 32),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  padding: const EdgeInsets.all(16),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "wallet(0xndhfhdf...kjueu)",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                          Icon(
+                                            Icons.keyboard_arrow_down,
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            height: 24.0,
+                                            width: 24.0,
+                                            decoration: BoxDecoration(
+                                              // border: Border.all(
+                                              //   color: Color.fromARGB(255, 15, 16, 16),
+                                              // ),
+                                              shape: BoxShape.circle,
+                                              // color: Color.fromARGB(255, 0, 0, 0),
+                                            ),
+                                            child: SvgPicture.asset(
+                                              "assets/images/usd-coin-usdc-logo.svg",
+                                              width: 24.0,
+                                              height: 24.0,
+                                            ),
+
+                                            // ),
+                                          ),
+                                          const SizedBox(
+                                            width: 8,
+                                          ),
+
+                                          Text(
+                                            '${usdcAmount.toStringAsFixed(2)} USDC',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            width: 8,
+                                          ),
+                                          // const Text(
+                                          //   "USDC",
+                                          //   style: TextStyle(fontSize: 20, color: Colors.white),
+                                          // ),
+                                          SizedBox(
+                                            width: 8,
+                                          ),
+                                          SvgPicture.asset(
+                                            "assets/images/arrow-swap-horizontal.svg",
+                                            width: 10,
+                                            colorFilter: ColorFilter.mode(
+                                                Color(0xFF9FE625),
+                                                BlendMode.srcIn),
+                                          ),
+                                          SizedBox(
+                                            width: 8,
+                                          ),
+                                          Text(
+                                            '${cfaAmount.toStringAsFixed(2)} XOF',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8, vertical: 4),
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  Color.fromARGB(255, 0, 0, 0),
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                            ),
+                                            child: Row(
+                                              children: const [
+                                                Icon(
+                                                  Icons.arrow_drop_up,
+                                                  color: Color(0xFF9FE625),
+                                                ),
+                                                Text(
+                                                  "2.28%",
+                                                  style: TextStyle(
+                                                    color: Color(0xFF9FE625),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 12,
+                                          ),
+                                          const Text(
+                                            "DERNIERE 24H",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 52,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            HomeScreen()),
+                                                  );
+                                                },
+                                                child: Container(
+                                                  height: 42,
+                                                  margin: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 16),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.black,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    border: Border.all(),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                          "assets/images/money-send.svg"),
+                                                      SizedBox(
+                                                        width: 8,
+                                                      ),
+                                                      Text(
+                                                        "Envoyer",
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              DepositScreen()),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    height: 42,
+                                                    margin: const EdgeInsets
+                                                        .symmetric(
+                                                        horizontal: 16),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.black,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                      border: Border.all(),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        SvgPicture.asset(
+                                                            "assets/images/money-recive.svg"),
+                                                        SizedBox(
+                                                          width: 8,
+                                                        ),
+                                                        Text(
+                                                          "Acheter",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  
+                                ),
+                              )
+                              // --
+                              ),
                           // padding 001
                           Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Column(
-                              children: [
-                                  
-                              ],
+                              children: [],
                             ),
                           ),
                           Expanded(
@@ -214,50 +433,46 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               pageIndex = idx;
             });
-            if (idx == 1){
+            if (idx == 1) {
               Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ScannerCode()), // Remplacez `QRCodePage` par votre page de QR code
-      );
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ScannerCode()), // Remplacez `QRCodePage` par votre page de QR code
+              );
             }
-
           },
-        
 
-          
           items: _navBarItems.map((item) {
             return BottomNavigationBarItem(
                 icon: Icon(item['icon']), label: item['label']);
           }).toList(),
-        )
-        );
+        ));
   }
+
   void _showQRCode(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Color.fromARGB(255, 14, 13, 13),   
-        shadowColor:Colors.transparent,
-        surfaceTintColor: Color(0xFF9FE625),
-        content: Padding(
-          padding: EdgeInsets.all(20),
-          child: QrImageView(
-          data: 'wallet(0xndhfhdf...kjueu)',  // Data to be encoded
-          version: QrVersions.auto,
-          dataModuleStyle: QrDataModuleStyle(
-            color: Color(0xFF9FE625), 
-            dataModuleShape: QrDataModuleShape.circle
-          ),
-          size: 200.0,
-          eyeStyle: QrEyeStyle(
-            color: Color(0xFF9FE625),
-            eyeShape: QrEyeShape.circle
-          ),
-          // backgroundColor: Color(0xFF9FE625),
-          semanticsLabel: "This is a public key or wallet"
-        ),
-        )
-      ),
+        title: Title(color: Colors.white, child: Text("Wallet adress")),
+          backgroundColor: Color.fromARGB(255, 14, 13, 13),
+          shadowColor: Colors.transparent,
+          surfaceTintColor: Color(0xFF9FE625),
+          content: Padding(
+            padding: EdgeInsets.all(20),
+            child: QrImageView(
+
+                data: 'wallet(0xndhfhdf...kjueu)', // Data to be encoded
+                version: QrVersions.auto,
+                dataModuleStyle: QrDataModuleStyle(
+                    color: Color(0xFF9FE625),
+                    dataModuleShape: QrDataModuleShape.circle),
+                size: 200.0,
+                eyeStyle: QrEyeStyle(
+                    color: Color(0xFF9FE625), eyeShape: QrEyeShape.circle),
+                // backgroundColor: Color(0xFF9FE625),
+                semanticsLabel: "This is a public key or wallet"),
+          )),
     );
   }
 }

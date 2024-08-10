@@ -6,7 +6,8 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:fees/components/animation/loading_provider.dart';
-
+import 'package:fees/pages/wallet/wallet_provider.dart'; 
+import 'package:provider/provider.dart';
 
 
 
@@ -16,8 +17,8 @@ class DepositDetailsScreen extends StatefulWidget {
 }
 
 class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
-  TextEditingController _cfaController = TextEditingController();
-  TextEditingController _usdcController = TextEditingController();
+  final TextEditingController _cfaController = TextEditingController();
+  final TextEditingController _usdcController = TextEditingController();
 
   static const double conversionRate = 600.0;
   double _operatorFee = 0.0;
@@ -40,19 +41,11 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
     _usdcController.dispose();
     super.dispose();
   }
-  //  void _handleDeposit() {
-  //   double amount = double.tryParse(_usdcController.text) ?? 0.0;
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) => TransactionSuccessScreen(amount: amount),
-  //     ),
-  //   );
-  // }
   
   @override
   Widget build(BuildContext context) {
-       final loadingProvider = Provider.of<LoadingProvider>(context);
+    final loadingProvider = Provider.of<LoadingProvider>(context);
+      final walletProvider = Provider.of<WalletProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 9, 9, 9),
@@ -174,12 +167,15 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
             ElevatedButton(
               onPressed: () async {
                 // Handle continue button press
+                double amount = double.tryParse(_usdcController.text) ?? 0.0;
                 loadingProvider.startLoading();
                 await _loadHomePageData();
                 if (mounted){
                   loadingProvider.stopLoading();
-                  _navigateToSuccessPage(); 
+                  walletProvider.depositUSDC(amount);
+                  _navigateToSuccessPage(amount); 
                 }
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625), // Background color
@@ -196,12 +192,11 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
     );
     
   }
-   Future<void> _loadHomePageData() async {
+  Future<void> _loadHomePageData() async {
     // Simuler le chargement des données pour la page d'accueil
     await Future.delayed(Duration(seconds: 3));
   }
-  void _navigateToSuccessPage() {
-    double amount = double.tryParse(_usdcController.text) ?? 0.0;
+  void _navigateToSuccessPage(amount) {
   Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => TransactionSuccessScreen(amount: amount)),

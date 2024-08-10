@@ -5,6 +5,8 @@ import 'package:fees/pages/send_usdc/details_sending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:fees/pages/wallet/wallet_provider.dart'; 
 
 class SendFundsScreen extends StatefulWidget {
 
@@ -15,14 +17,9 @@ class SendFundsScreen extends StatefulWidget {
 }
 
 class _SendFundsScreenState extends State<SendFundsScreen> {
-  TextEditingController _sendTokenController = TextEditingController();
+  final TextEditingController _sendTokenController = TextEditingController();
 
-  // void _convertCfaToUsdc(String value) {
-  // double token = double.tryParse(value) ?? 0;
-  //   setState(() {
-  //     _sendTokenController.text=token.toString();
-  // });
-  // }
+
   @override
   void dispose() {
     _sendTokenController.dispose();
@@ -30,6 +27,7 @@ class _SendFundsScreenState extends State<SendFundsScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final walletProvider = Provider.of<WalletProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 9, 9, 9),
@@ -158,6 +156,8 @@ class _SendFundsScreenState extends State<SendFundsScreen> {
                 onPressed: () {
                   double token = double.tryParse(_sendTokenController.text) ?? 0.0;
                   double usdcConvert = token*600; 
+                  walletProvider.purchaseUSDC(usdcConvert, 600);
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(

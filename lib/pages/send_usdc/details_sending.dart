@@ -20,7 +20,7 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
   Widget build(BuildContext context) {
 
     // ligne de code pour accepter les providers 
-     final loadingProvider = Provider.of<LoadingProvider>(context);
+    final loadingProvider = Provider.of<LoadingProvider>(context);
 
     return Scaffold(
       appBar: AppBar(

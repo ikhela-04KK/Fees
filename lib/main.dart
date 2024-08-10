@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:fees/components/animation/loading_provider.dart';
+import 'package:fees/pages/wallet/wallet_provider.dart';
 import 'package:fees/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:fees/pages/intro_screen/intro_page.dart';
@@ -11,8 +12,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_) => LoadingProvider())
+    MultiProvider(
+      providers: [
+      ChangeNotifierProvider(create: (_) => LoadingProvider(),), 
+      ChangeNotifierProvider(create: (context) => WalletProvider())
     ], 
     child: MyApp(),
       )

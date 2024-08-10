@@ -85,7 +85,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                     // Handle close button press
                     Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage(usdcAmount: amount,cfaAmount: amount /600)),
+                  MaterialPageRoute(builder: (context) => HomePage()),
                 );
                   },
                   style: ElevatedButton.styleFrom(
