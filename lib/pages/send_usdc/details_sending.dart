@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 
 class DetailsSendingScreen extends StatefulWidget {
-  final double token;
-  final double usdcConvert;
-  const DetailsSendingScreen({super.key, required this.token, required this.usdcConvert});
+  double token;
+  double usdcConvert;
+  DetailsSendingScreen({super.key, required this.token, required this.usdcConvert});
 
   @override
   State<DetailsSendingScreen> createState() => _DetailsSendingScreenState();
@@ -21,7 +22,6 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
 
     // ligne de code pour accepter les providers 
     final loadingProvider = Provider.of<LoadingProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -126,13 +126,14 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
+              
               onPressed: () async {
+                double token = widget.token;
                 loadingProvider.startLoading();
                 await _loadHomePageData();
                 if (mounted){
                   loadingProvider.stopLoading();
-                  _navigateToSuccessPage(); 
-                }
+              Get.to(() => SuccessPage(tokenSend: token) , transition: Transition.fade, duration: Duration(seconds:1));                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625),
@@ -153,11 +154,9 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
     // Simuler le chargement des données pour la page d'accueil
     await Future.delayed(Duration(seconds: 3));
   }
-  void _navigateToSuccessPage() {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => SuccessPage()),
-  );
-}
+  // Navigator.push(
+  //   context,
+  //   MaterialPageRoute(builder: (context) => SuccessPage()),
+  // );
 
 }

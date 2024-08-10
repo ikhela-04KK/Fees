@@ -2,12 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:fees/pages/home_page/home_page.dart';
-
+import 'package:provider/provider.dart';
+import 'package:fees/pages/wallet/wallet_provider.dart'; 
 class SuccessPage extends StatelessWidget {
-  const SuccessPage({super.key});
+  final double tokenSend ;
+  const SuccessPage({super.key, required this.tokenSend});
 
   @override
   Widget build(BuildContext context) {
+    final walletProvider = Provider.of<WalletProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
@@ -67,7 +70,7 @@ class SuccessPage extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    '-25.99',
+                    '${tokenSend.toStringAsFixed(2)}',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ],
