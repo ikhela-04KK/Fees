@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class WalletProvider with ChangeNotifier {
   double _usdcBalance = 0.0;
   double _xofBalance = 0.0;
