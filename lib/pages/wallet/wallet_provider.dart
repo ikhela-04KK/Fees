@@ -10,6 +10,7 @@ class WalletProvider with ChangeNotifier {
   // Fonction pour déposer des USDC
   void depositUSDC(double amount) {
     _usdcBalance += amount;
+    _xofBalance = _usdcBalance*600;
     notifyListeners();
   }
 
@@ -18,7 +19,7 @@ class WalletProvider with ChangeNotifier {
     if (_xofBalance >= xofAmount) {
       double usdcAmount = xofAmount / conversionRate;
       _xofBalance -= xofAmount;
-      _usdcBalance += usdcAmount;
+      _usdcBalance -= usdcAmount;
       notifyListeners();
     } else {
       // Gestion des erreurs (par exemple, solde insuffisant)

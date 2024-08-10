@@ -7,7 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:fees/components/animation/loading_provider.dart';
 import 'package:fees/pages/wallet/wallet_provider.dart'; 
-import 'package:provider/provider.dart';
+
 
 
 

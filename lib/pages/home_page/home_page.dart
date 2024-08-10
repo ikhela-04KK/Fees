@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                             '${usdcAmount.toStringAsFixed(2)} USDC',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
+                                                fontSize: 15,
                                                 color: Colors.white),
                                           ),
                                           const SizedBox(
@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                                             '${cfaAmount.toStringAsFixed(2)} XOF',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
+                                                fontSize: 15,
                                                 color: Colors.white),
                                           ),
                                         ],
@@ -454,7 +454,6 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Title(color: Colors.white, child: Text("Wallet adress")),
           backgroundColor: Color.fromARGB(255, 14, 13, 13),
           shadowColor: Colors.transparent,
           surfaceTintColor: Color(0xFF9FE625),
