@@ -36,6 +36,7 @@ dependencies:
   mobile_scanner: ^5.1.1
   get: ^4.6.6
   showcaseview: ^3.0.0
+  uuid: ^4.4.2
 
 dev_dependencies:
   flutter_test:
