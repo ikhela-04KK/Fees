@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fees/pages/intro_screen/intro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 void main() async {
   // charger tous les composants avant le lancement de l'application 
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Fees',
       theme:darkMode,
       home:IntroPage(),     //OptionScreen

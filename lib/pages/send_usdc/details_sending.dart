@@ -133,7 +133,7 @@ class _DetailsSendingScreenState extends State<DetailsSendingScreen> {
                 await _loadHomePageData();
                 if (mounted){
                   loadingProvider.stopLoading();
-              Get.to(() => SuccessPage(tokenSend: token) , transition: Transition.fade, duration: Duration(seconds:1));                }
+              Get.to(() => SuccessPage(tokenSend: token) , transition: Transition.zoom, duration: Duration(seconds:2));                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625),

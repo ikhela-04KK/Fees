@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   awesome_notifications
+  fast_rsa
   firebase_auth
   firebase_core
   local_auth_windows

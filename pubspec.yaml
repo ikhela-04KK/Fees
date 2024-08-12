@@ -37,6 +37,12 @@ dependencies:
   get: ^4.6.6
   showcaseview: ^3.0.0
   uuid: ^4.4.2
+  pointycastle: ^3.9.1
+  basic_utils: ^5.7.0
+  flutter_dotenv: ^5.1.0
+  fast_rsa: ^3.6.4
+  encrypt: ^5.0.3
+  convert: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +78,8 @@ flutter:
     - assets/animation/
     - assets/images/
     - assets/images/usd-coin-usdc-logo.svg
+    - .env
+    - assets/.env
 
   fonts:
     - family: jbm

@@ -35,3 +35,7 @@ class AppAnims{
   static const String checkBoldRepeat = "assets/animation/checkBoldRepeat.json"; 
   static const String checkIn = "assets/animation/checkOut.json"; 
 }
+
+class ApiRequestConstants{
+  static const String baseUrl = "https://api.circle.com/v1/w3s";
+}

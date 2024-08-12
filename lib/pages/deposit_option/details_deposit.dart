@@ -7,7 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:fees/components/animation/loading_provider.dart';
 import 'package:fees/pages/wallet/wallet_provider.dart'; 
-
+import 'package:get/get.dart';
 
 
 
@@ -173,9 +173,8 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
                 if (mounted){
                   loadingProvider.stopLoading();
                   walletProvider.depositUSDC(amount);
-                  _navigateToSuccessPage(amount); 
+                  Get.to(() => TransactionSuccessScreen(amount: amount) , transition: Transition.circularReveal, duration: Duration(seconds:2));    
                 }
-
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF9FE625), // Background color
@@ -196,10 +195,8 @@ class _DepositDetailsScreenState extends State<DepositDetailsScreen> {
     // Simuler le chargement des données pour la page d'accueil
     await Future.delayed(Duration(seconds: 3));
   }
-  void _navigateToSuccessPage(amount) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => TransactionSuccessScreen(amount: amount)),
-  );
-  }
+  // void _navigateToSuccessPage(amount) {
+  // Get.to(() => TransactionSuccessScreen(amount: amount) , transition: Transition.circularReveal, duration: Duration(seconds:9));                }
+  // }
+
 }
