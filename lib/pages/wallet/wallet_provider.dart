@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:fees/services/networking/api_request.dart';
+import 'package:flutter/foundation.dart';
+import 'package:fees/services/model/create_wallet_model.dart';
 class WalletProvider with ChangeNotifier {
   double _usdcBalance = 0.0;
   double _xofBalance = 0.0;
@@ -32,3 +34,48 @@ class WalletProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+
+class CreateWalletProvider with ChangeNotifier {
+  late CreateWallet _createWalleModel; 
+
+  bool _isLoading = false;
+  bool get isLoding => _isLoading; 
+
+  late String _name;
+
+  String get name => _name;
+
+  late String _refId;
+
+  String get refId => _refId;
+
+  CreateWallet get createWalletModel => _createWalleModel;
+
+  setLoading(bool value){
+    _isLoading = value;
+    notifyListeners(); 
+  }
+
+  createWallet({
+    required String name,
+    required String refId,
+  }) async {
+    setLoading(true); 
+    try {
+      _createWalleModel = await APIManagement().createWalletRequest(name: name, refId: refId);
+      notifyListeners(); 
+      setLoading(false); 
+
+    } catch( e){
+      if (kDebugMode){
+
+        print('Erreur lors du fetch à api'); 
+      }        
+      }
+      finally { 
+        setLoading(false); 
+      }
+      return _createWalleModel;
+    }
+  }
+

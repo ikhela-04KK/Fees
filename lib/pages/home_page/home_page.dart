@@ -13,7 +13,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fees/pages/deposit_option/screen.dart';
 import 'package:fees/pages/send_usdc/adress_item.dart';
 import 'package:fees/pages/wallet/wallet_provider.dart'; 
-
+import 'package:fees/services/model/create_wallet_model.dart';
 class HomePage extends StatefulWidget {
   HomePage({super.key});
 
@@ -67,6 +67,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double usdcAmount = Provider.of<WalletProvider>(context).usdcBalance;
     double cfaAmount = Provider.of<WalletProvider>(context).xofBalance;
+
+
+    // appeler les apis dans le homePage 
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -132,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            "wallet(0xndhfhdf...kjueu)",
+                                            "wallet(0xndhfhdf...kjueu)",  // utiliser les resultats du wallet ici
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),
@@ -168,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
 
                                           Text(
-                                            '${usdcAmount.toStringAsFixed(2)} USDC',
+                                            '${usdcAmount.toStringAsFixed(2)} USDC',  // utiliser l'api du get balance ici
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,

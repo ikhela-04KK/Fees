@@ -6,12 +6,26 @@ import 'package:fees/pages/sign_up/SignUpHeaderWidget.dart';
 import 'package:fees/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:fees/pages/securite/otp_page/otp_screen.dart';
-
+import 'package:fees/services/networking/api_request.dart';
+import 'package:fees/services/model/create_wallet_model.dart';
+import 'package:fees/pages/wallet/wallet_provider.dart';
+import 'package:provider/provider.dart';
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+  final TextEditingController _nameController = TextEditingController(); 
+  final TextEditingController _refIdController = TextEditingController(); 
+
+
+    final CreateWalletProvider walletData=Provider.of<CreateWalletProvider>(context,listen:false);
+  @override
+  void dispose(){
+    _nameController.dispose(); 
+    _refIdController.dispose();
+  }
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -32,6 +46,7 @@ class SignUp extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextFormField(
+                          controller: _nameController,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               label: Text("Nom d'Utilisateur"),
@@ -48,6 +63,7 @@ class SignUp extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         TextFormField(
+                          controller: _refIdController,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               label: Text("Email"),
