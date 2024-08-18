@@ -24,7 +24,7 @@ class WalletProvider with ChangeNotifier {
       notifyListeners();
     } else {
       // Gestion des erreurs (par exemple, solde insuffisant)
-      print("Solde insuffisant pour effectuer l'achat");
+      debugPrint("Solde insuffisant pour effectuer l'achat");
     }
   }
 
@@ -38,8 +38,8 @@ class WalletProvider with ChangeNotifier {
 class CreateWalletProvider with ChangeNotifier {
   late CreateWallet _createWalleModel; 
 
-  bool _isLoading = false;
-  bool get isLoding => _isLoading; 
+  // bool _isLoading = false;
+  // bool get isLoding => _isLoading; 
 
   late String _name;
 
@@ -51,20 +51,20 @@ class CreateWalletProvider with ChangeNotifier {
 
   CreateWallet get createWalletModel => _createWalleModel;
 
-  setLoading(bool value){
-    _isLoading = value;
-    notifyListeners(); 
-  }
+  // setLoading(bool value){
+  //   _isLoading = value;
+  //   notifyListeners(); 
+  // }
 
   createWallet({
     required String name,
     required String refId,
   }) async {
-    setLoading(true); 
+    // setLoading(true); 
     try {
       _createWalleModel = await APIManagement().createWalletRequest(name: name, refId: refId);
       notifyListeners(); 
-      setLoading(false); 
+      // setLoading(false); 
 
     } catch( e){
       if (kDebugMode){
@@ -73,7 +73,8 @@ class CreateWalletProvider with ChangeNotifier {
       }        
       }
       finally { 
-        setLoading(false); 
+        // setLoading(false);  
+        debugPrint("Finally setup");
       }
       return _createWalleModel;
     }

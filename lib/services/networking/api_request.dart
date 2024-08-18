@@ -17,20 +17,23 @@ class APIManagement {
   }) async {
     late CreateWallet createWalletModel;
     final key = await generateKey();
-    await dotenv.load(fileName: "assets/.env");
+
+    // charger les variables d'environnement
+    await dotenv.load(fileName: "../../../assets/.env");
 
     // gestion du uuid
-    final uuidV4 = UuidV4();
-    final walletSetId =
-        dotenv.env['wallet_set_id'] ?? Platform.environment['circle_key'];
-    final circleKey =
-        dotenv.env['circle_key'] ?? Platform.environment['circle_key'];
+    const uuidV4 = UuidV4();
+    final walletSetId = dotenv.env['wallet_set_id'] ?? Platform.environment['circle_key'];
+    final circleKey = dotenv.env['circle_key'] ?? Platform.environment['circle_key'];
 
+    // pour eviter cette erreur Map<String, String?> or il doit prendre uniquement Map<String , String>
+    // pour s'assurer que peut importe l'élément qui sort de cette exception ça soit toujours valide 
     if (circleKey == null || walletSetId == null) {
       throw Exception("api key have null value");
     }
+
     try {
-      var headers = {
+      final Map<String, String> headers = {
         'Content-Type': 'application/json',
         'Authorization': circleKey
       };
@@ -47,9 +50,7 @@ class APIManagement {
         "walletSetId": walletSetId
       });
       request.headers.addAll(headers);
-
       http.StreamedResponse response = await request.send();
-
       if (response.statusCode == 200) {
         var data = await response.stream.bytesToString();
         createWalletModel = createWalletListFromJson(data);

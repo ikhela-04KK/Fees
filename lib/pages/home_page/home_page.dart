@@ -13,9 +13,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fees/pages/deposit_option/screen.dart';
 import 'package:fees/pages/send_usdc/adress_item.dart';
 import 'package:fees/pages/wallet/wallet_provider.dart'; 
-import 'package:fees/services/model/create_wallet_model.dart';
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -164,13 +163,11 @@ class _HomePageState extends State<HomePage> {
                                               width: 24.0,
                                               height: 24.0,
                                             ),
-
                                             // ),
                                           ),
                                           const SizedBox(
                                             width: 8,
                                           ),
-
                                           Text(
                                             '${usdcAmount.toStringAsFixed(2)} USDC',  // utiliser l'api du get balance ici
                                             style: TextStyle(
@@ -181,10 +178,6 @@ class _HomePageState extends State<HomePage> {
                                           const SizedBox(
                                             width: 8,
                                           ),
-                                          // const Text(
-                                          //   "USDC",
-                                          //   style: TextStyle(fontSize: 20, color: Colors.white),
-                                          // ),
                                           SizedBox(
                                             width: 8,
                                           ),

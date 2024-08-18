@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:fees/constants/colors.dart';
-import 'package:fees/pages/home_page/home_page.dart';
 import 'package:fees/pages/intro_screen/intro_one.dart';
 import 'package:fees/pages/intro_screen/intro_three.dart';
 import 'package:fees/pages/intro_screen/intro_two.dart';

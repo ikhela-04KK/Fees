@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:fees/pages/deposit_option/details_deposit.dart';
-import 'package:fees/pages/deposit_option/succes_transaction.dart';
 import 'package:flutter/material.dart';
 
 class DepositScreen extends StatelessWidget {

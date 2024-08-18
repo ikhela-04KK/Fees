@@ -72,16 +72,16 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                     debugPrint("SUCEFFULY ");
                   }
                     },
-                    child: Container(
-                      // decoration: BoxDecoration(
-                      //   color: Colors.black,
-                      //   shape: BoxShape.circle,
-                      //   border: Border.all(color: Color(0xFF9FE625), width: 1),
-                      // ),
+                    // child: Container(
+                    //   // decoration: BoxDecoration(
+                    //   //   color: Colors.black,
+                    //   //   shape: BoxShape.circle,
+                    //   //   border: Border.all(color: Color(0xFF9FE625), width: 1),
+                    //   // ),
                       child: Center(
                         child: Icon(Iconsax.finger_scan, color: Color(0xFF9FE625)),
                       ),
-                    ),
+                    // ),
                   );
                 } else if (index == 10) {
                   return _buildNumberButton(0, index);
@@ -122,7 +122,7 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => HomePage()),
               );
-            };
+            }
             _selectedIndex = index;
           });
         }

@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:fees/pages/send_usdc/details_sending.dart';
+
 import 'package:fees/pages/send_usdc/send_token.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +84,7 @@ class AddressItem extends StatelessWidget {
   final String title;
   final String distance;
 
-  AddressItem({required this.title, required this.distance});
+  const AddressItem({super.key, required this.title, required this.distance});
 
   @override
   Widget build(BuildContext context) {

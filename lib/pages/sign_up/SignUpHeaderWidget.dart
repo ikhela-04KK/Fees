@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpHeaderWidget extends StatelessWidget {
   const SignUpHeaderWidget({
@@ -19,7 +18,7 @@ class SignUpHeaderWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style:const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 18,
             color: Colors.white,

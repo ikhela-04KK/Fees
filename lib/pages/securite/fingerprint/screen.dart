@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:math';
 
 import 'package:fees/constants/app_image.dart';
 import 'package:fees/services/local_auth_service.dart';
@@ -8,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class FingerPrint extends StatefulWidget {
-  FingerPrint({super.key});
+  const FingerPrint({super.key});
 
   @override
   State<FingerPrint> createState() => _FingerPrintState();
@@ -24,7 +23,7 @@ class _FingerPrintState extends State<FingerPrint> {
   // verifier la capacité de prise en charge de la biometrie
   @override
   /*
-  void initState() {
+  void initState(){
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showOverlay(context);
@@ -56,9 +55,7 @@ class _FingerPrintState extends State<FingerPrint> {
       overlayEntry.remove();
     });
   }
-
    */
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -83,7 +80,6 @@ class _FingerPrintState extends State<FingerPrint> {
                     fontWeight: FontWeight.bold),
               ),
               */
-
               SizedBox(height: 20),
               /*
               Text(

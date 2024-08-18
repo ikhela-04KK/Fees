@@ -70,6 +70,7 @@ class SeedPhrase extends StatelessWidget {
               ),
       
               // add gridViewBuilder 
+              
               Container(
                 height: 420,
                 child: GridView.builder(

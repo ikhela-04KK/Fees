@@ -9,13 +9,13 @@ class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
+   // ignore: library_private_types_in_public_api
   _IntroPageState createState() => _IntroPageState();
 }
 
 class _IntroPageState extends State<IntroPage> {
   @override
-  void initState() {
+  void initState(){
     super.initState();
     // Démarrer l'animation et naviguer après qu'elle soit terminée
     WidgetsBinding.instance.addPostFrameCallback((_) {

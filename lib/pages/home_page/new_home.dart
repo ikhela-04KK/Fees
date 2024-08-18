@@ -33,6 +33,7 @@ class ScreenTest extends StatelessWidget {
 }
 
 class TotalBalance extends StatelessWidget {
+  const TotalBalance({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -58,6 +59,7 @@ class TotalBalance extends StatelessWidget {
 }
 
 class CryptoCards extends StatelessWidget {
+  const CryptoCards({super.key});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -182,6 +184,7 @@ class CryptoCard extends StatelessWidget {
 }
 
 class TransferReceiveButtons extends StatelessWidget {
+  const TransferReceiveButtons({super.key}); 
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -207,7 +210,8 @@ class ActionButton extends StatelessWidget {
   final IconData icon;
   final Color color;
 
-  ActionButton({
+  const ActionButton({
+    super.key,
     required this.text,
     required this.icon,
     required this.color,

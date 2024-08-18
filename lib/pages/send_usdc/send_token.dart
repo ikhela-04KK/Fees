@@ -10,7 +10,7 @@ import 'package:fees/pages/wallet/wallet_provider.dart';
 
 class SendFundsScreen extends StatefulWidget {
 
-  SendFundsScreen({super.key});
+  const SendFundsScreen({super.key});
 
   @override
   State<SendFundsScreen> createState() => _SendFundsScreenState();

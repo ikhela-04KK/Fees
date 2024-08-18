@@ -1,35 +1,42 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:fees/constants/sizes.dart';
-import 'package:fees/pages/home_page/home_page.dart';
 import 'package:fees/pages/sign_up/SignUpHeaderWidget.dart';
 import 'package:fees/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:fees/pages/securite/otp_page/otp_screen.dart';
-import 'package:fees/services/networking/api_request.dart';
-import 'package:fees/services/model/create_wallet_model.dart';
 import 'package:fees/pages/wallet/wallet_provider.dart';
 import 'package:provider/provider.dart';
-class SignUp extends StatelessWidget {
+
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+
+}
+
+class _SignUpState extends State<SignUp>{
 
   @override
   Widget build(BuildContext context) {
 
-  final TextEditingController _nameController = TextEditingController(); 
-  final TextEditingController _refIdController = TextEditingController(); 
+  final TextEditingController nameController = TextEditingController(); 
+  final TextEditingController refIdController = TextEditingController(); 
 
 
-    final CreateWalletProvider walletData=Provider.of<CreateWalletProvider>(context,listen:false);
+  // final CreateWalletProvider walletData=Provider.of<CreateWalletProvider>(context,listen:false);
   @override
   void dispose(){
-    _nameController.dispose(); 
-    _refIdController.dispose();
+    nameController.dispose(); 
+    refIdController.dispose();
   }
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Container(
+          child: Consumer<CreateWalletProvider>(
+            builder:(context, provider, child) {
+              return Container(
             padding: EdgeInsets.all(tDefaultSize),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +53,7 @@ class SignUp extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextFormField(
-                          controller: _nameController,
+                          controller: nameController,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               label: Text("Nom d'Utilisateur"),
@@ -59,11 +66,12 @@ class SignUp extends StatelessWidget {
                               iconColor: Color(0xFF9FE625),
                               focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      width: 2.0, color: Color(0xFF28536B)))),
+                                      width: 2.0, color: Color(0xFF28536B)))
+                                      ),
                         ),
                         SizedBox(height: 10),
                         TextFormField(
-                          controller: _refIdController,
+                          controller: refIdController,
                           style: TextStyle(color: Colors.white),
                           decoration: InputDecoration(
                               label: Text("Email"),
@@ -96,7 +104,10 @@ class SignUp extends StatelessWidget {
                         ),
                         SizedBox(height: 40),
                         ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                                await provider.createWallet(
+                                  name:nameController.text , refId: refIdController.text
+                                );
                                 Navigator.push(
                               context, 
                               MaterialPageRoute(builder: (context){
@@ -125,6 +136,8 @@ class SignUp extends StatelessWidget {
                 // SignUpFooterWidget()
               ],
             ),
+          );
+            }
           ),
         ),
       ),
