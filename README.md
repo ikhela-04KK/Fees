@@ -43,7 +43,9 @@ The architecture of Fees is designed to provide a scalable and secure platform f
 3. **Blockchain**: Solana blockchain serves as the decentralized ledger for all transactions.
 4. **Circle API**: Used for converting USDC to XOF and for managing USDC transactions.
 
-![[Frame 17.png]]
+C:\Users\ikhela\android\fees\assets\systemDesign
+
+![[assets\systemDesign/Frame 17.png]]
 
 ![[https://www.youtube.com/watch?v=heCU3asN2XA]]
 
