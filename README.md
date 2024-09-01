@@ -2,6 +2,13 @@
 
 Fees is a mobile payment application built on the Solana blockchain, leveraging USDC (USD Coin) for fast, secure, and cost-effective cross-border transactions. The application provides users with a seamless experience for sending, receiving, and exchanging USDC with XOF (West African CFA franc).
 
+## Design
+
+The design used to develop this application can be found at the following link:
+
+[Krypt - Crypto Wallet App UI Kit (Figma)](https://www.figma.com/design/XaeybdCMJW9hkFO5wgtgFA/Krypt---Cypto-Wallet-App-UI-Kit-(Community)?node-id=226-1567&node-type=CANVAS&t=pF01I2EmsfsGlyn8-0)
+
+
 ## Table of Contents
 
 - [Introduction](#introduction)
