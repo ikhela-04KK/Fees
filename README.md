@@ -43,11 +43,11 @@ The architecture of Fees is designed to provide a scalable and secure platform f
 3. **Blockchain**: Solana blockchain serves as the decentralized ledger for all transactions.
 4. **Circle API**: Used for converting USDC to XOF and for managing USDC transactions.
 
-C:\Users\ikhela\android\fees\assets\systemDesign
 
-![[assets\systemDesign/Frame 17.png]]
 
-![[https://www.youtube.com/watch?v=heCU3asN2XA]]
+![image 1](assets/systemDesign/Screenshot_20240805-090521.jpg)
+
+![Vidéo Youtube](assets/systemDesign/[Screenshot_20240805-090521.jpg](https://www.youtube.com/watch?v=heCU3asN2XA))
 
 ![[How to Use the Schematiq App.mp4]]
 
