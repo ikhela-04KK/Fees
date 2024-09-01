@@ -42,3 +42,13 @@ The architecture of Fees is designed to provide a scalable and secure platform f
 2. **Backend**: A NestJS API that handles business logic, interacts with the Solana blockchain, and processes user requests.
 3. **Blockchain**: Solana blockchain serves as the decentralized ledger for all transactions.
 4. **Circle API**: Used for converting USDC to XOF and for managing USDC transactions.
+
+   
+![Bannière](https://github.com/user-attachments/assets/3610bd4d-5d91-4a7e-a0dc-0a4260bdc4c3)
+
+![Logo de l'application](https://github.com/user-attachments/assets/4cba7987-517d-43e2-9911-d5c73533c09e)
+
+
+https://github.com/user-attachments/assets/2d253946-2550-4fb7-8338-a33de7d1e7ca
+
+The design for this project can be viewed in the [Figma file]([https://www.figma.com/design/XaeybdCMJW9hkFO5wgtgFA/Krypt---Cypto-Wallet-App-UI-Kit-(Community)?node-id=226-1567&node-type=CANVAS&t=pF01I2EmsfsGlyn8-0](https://www.figma.com/design/4ze3FVfPKf14ntMwSEmoZj/Fees?node-id=0-1&node-type=CANVAS&t=LixLQylSUnBXwcm9-0))
