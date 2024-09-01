@@ -43,18 +43,43 @@ The architecture of Fees is designed to provide a scalable and secure platform f
 3. **Blockchain**: Solana blockchain serves as the decentralized ledger for all transactions.
 4. **Circle API**: Used for converting USDC to XOF and for managing USDC transactions.
 
-### High-Level Architecture Diagram
+![[Frame 17.png]]
 
-```plaintext
-+-------------------+      +-------------------+      +-------------------+
-|                   |      |                   |      |                   |
-|  Mobile App       |<---->|  NestJS Backend   |<---->|  Solana Blockchain|
-|  (Flutter)        |      |  (Node.js)        |      |                   |
-+-------------------+      +-------------------+      +-------------------+
-           |                         |
-           v                         v
-  +-------------------+      +-------------------+
-  |                   |      |                   |
-  |  Circle API       |<---->|  Database (PostgreSQL)|
-  +-------------------+      +-------------------+
+![[https://www.youtube.com/watch?v=heCU3asN2XA]]
+
+![[How to Use the Schematiq App.mp4]]
+
+![[Screenshot_20240805-090521.jpg]]
+
+![[Screenshot_20240805-090308 2.jpg]]
+
+![[Screenshot_20240805-090316 2.jpg]]
+
+![[Screenshot_20240805-090318 2.jpg]]
+
+![[Screenshot_20240805-090320 2.jpg]]
+
+![[Screenshot_20240805-090325.jpg]]
+
+![[Screenshot_20240805-090327.jpg]]
+
+![[Screenshot_20240805-090329.jpg]]
+
+![[Screenshot_20240805-090405.jpg]]
+
+![[Screenshot_20240805-090428.jpg]]
+
+![[Screenshot_20240805-090431.jpg]]
+
+![[Screenshot_20240805-090436.jpg]]
+
+![[Screenshot_20240805-090447.jpg]]
+
+![[Screenshot_20240805-090450.jpg]]
+
+![[Screenshot_20240805-090456.jpg]]
+
+![[Screenshot_20240805-090505.jpg]]
+
+![[Screenshot_20240805-090515.jpg]]
 
