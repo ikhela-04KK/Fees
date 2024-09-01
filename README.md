@@ -50,3 +50,9 @@ The architecture of Fees is designed to provide a scalable and secure platform f
   |                   |      |                   |
   |  Circle API       |<---->|  Database (PostgreSQL)|
   +-------------------+      +-------------------+
+
+## Design
+
+The design used to develop this application can be found at the following link:
+
+[Krypt - Crypto Wallet App UI Kit (Figma)](https://www.figma.com/design/XaeybdCMJW9hkFO5wgtgFA/Krypt---Cypto-Wallet-App-UI-Kit-(Community)?node-id=226-1567&node-type=CANVAS&t=pF01I2EmsfsGlyn8-0)
