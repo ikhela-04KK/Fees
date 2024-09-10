@@ -40,7 +40,7 @@ workflows:
           failure: false
       google_play:
         credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT
-        track: internal
+        track: beta
         submit_as_draft: true
   android-workflow:
     name: Android Workflow

@@ -36,47 +36,34 @@ class WalletProvider with ChangeNotifier {
 }
 
 class CreateWalletProvider with ChangeNotifier {
-  late CreateWallet _createWalleModel; 
-
-  // bool _isLoading = false;
-  // bool get isLoding => _isLoading; 
-
+  
+  CreateWallet? _createWalleModel;  // Nullable
+  
   late String _name;
-
-  String get name => _name;
-
   late String _refId;
 
+  String get name => _name;
   String get refId => _refId;
 
-  CreateWallet get createWalletModel => _createWalleModel;
-
-  // setLoading(bool value){
-  //   _isLoading = value;
-  //   notifyListeners(); 
-  // }
+  CreateWallet? get createWalletModel => _createWalleModel;  // Nullable getter
 
   createWallet({
     required String name,
     required String refId,
   }) async {
-    // setLoading(true); 
     try {
       _createWalleModel = await APIManagement().createWalletRequest(name: name, refId: refId);
-      notifyListeners(); 
-      // setLoading(false); 
-
-    } catch( e){
-      if (kDebugMode){
-
-        print('Erreur lors du fetch à api'); 
-      }        
+      notifyListeners();
+    } catch (e) {
+      if (kDebugMode) {
+        print('Erreur lors du fetch à api');
       }
-      finally { 
-        // setLoading(false);  
-        debugPrint("Finally setup");
-      }
-      return _createWalleModel;
+    } finally {
+      debugPrint("Finally setup");
     }
+    return _createWalleModel;
   }
+}
+
+
 

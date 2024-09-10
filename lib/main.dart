@@ -16,7 +16,8 @@ void main() async {
     MultiProvider(
       providers: [
       ChangeNotifierProvider(create: (_) => LoadingProvider(),), 
-      ChangeNotifierProvider(create: (context) => WalletProvider())
+      ChangeNotifierProvider(create: (context) => WalletProvider()),
+      ChangeNotifierProvider<CreateWalletProvider>(create: (_) => CreateWalletProvider()),
     ], 
     child: MyApp(),
       )

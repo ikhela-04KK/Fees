@@ -36,36 +36,38 @@ class _HomePageState extends State<HomePage> {
       'address': '0xabc...245',
       'amount': '-\$25.99',
     },
-    {
-      'avatarImage': AppImages.faceTwo,
-      'name': 'NewEgg',
-      'address': '0xabc...123',
-      'amount': '-\$10.50',
-    },
-    {
-      'avatarImage': AppImages.faceAvatar,
-      'name': 'Shopify',
-      'address': '0xabc...126',
-      'amount': '-\$10.50',
-    },
-    {
-      'avatarImage': AppImages.faceFour,
-      'name': 'Overstock',
-      'address': '0xabc...123',
-      'amount': '-\$10.50',
-    },
-    {
-      'avatarImage': AppImages.faceAvatar,
-      'name': 'NewEgg',
-      'address': '0xabc...123',
-      'amount': '-\$10.50',
-    },
+    // {
+    //   'avatarImage': AppImages.faceTwo,
+    //   'name': 'NewEgg',
+    //   'address': '0xabc...123',
+    //   'amount': '-\$10.50',
+    // },
+    // {
+    //   'avatarImage': AppImages.faceAvatar,
+    //   'name': 'Shopify',
+    //   'address': '0xabc...126',
+    //   'amount': '-\$10.50',
+    // },
+    // {
+    //   'avatarImage': AppImages.faceFour,
+    //   'name': 'Overstock',
+    //   'address': '0xabc...123',
+    //   'amount': '-\$10.50',
+    // },
+    // {
+    //   'avatarImage': AppImages.faceAvatar,
+    //   'name': 'NewEgg',
+    //   'address': '0xabc...123',
+    //   'amount': '-\$10.50',
+    // },
     // Ajouter d'autres données si nécessaire
   ];
   @override
   Widget build(BuildContext context) {
-    double usdcAmount = Provider.of<WalletProvider>(context).usdcBalance;
-    double cfaAmount = Provider.of<WalletProvider>(context).xofBalance;
+    return Consumer<WalletProvider>(
+    builder: (context, walletProvider, child) {
+      double usdcAmount = walletProvider.usdcBalance;
+      double cfaAmount = walletProvider.xofBalance;
 
 
     // appeler les apis dans le homePage 
@@ -390,7 +392,8 @@ class _HomePageState extends State<HomePage> {
                                 Expanded(
                                   child: SingleChildScrollView(
                                     child: Column(
-                                      children: _cardData.map((data) {
+                                      children:usdcAmount != 0 ?
+                                      _cardData.map((data) {
                                         return Column(
                                           children: [
                                             CustomCard(
@@ -402,7 +405,8 @@ class _HomePageState extends State<HomePage> {
                                             Gap(8)
                                           ],
                                         );
-                                      }).toList(),
+                                      }).toList()
+                                      : [Text("No recent activity.")],
                                     ),
                                   ),
                                 ),
@@ -444,7 +448,11 @@ class _HomePageState extends State<HomePage> {
             return BottomNavigationBarItem(
                 icon: Icon(item['icon']), label: item['label']);
           }).toList(),
-        ));
+        )
+        
+      );
+    }
+    );
   }
 
   void _showQRCode(BuildContext context) {
