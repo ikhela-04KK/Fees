@@ -78,8 +78,8 @@ flutter:
     - assets/animation/
     - assets/images/
     - assets/images/usd-coin-usdc-logo.svg
-    - .env
-    - assets/.env
+    # - .env
+    # - assets/.env
 
   fonts:
     - family: jbm
